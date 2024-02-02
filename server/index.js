@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
+import productRouter from "./src/Routers/productRouter.js";
 
 dotenv.config()
 
@@ -15,11 +16,11 @@ app.use(cors())
 app.use(express.json())
 
 
-
+app.use("/product", productRouter)
 
 
 mongoose.connect(URL).catch(err => console.log(err))
 
 app.listen(PORT, () => {
-    console.log(`Server online at ${PROT} port!`);
+    console.log(`Server online at ${PORT} port!`);
 })
