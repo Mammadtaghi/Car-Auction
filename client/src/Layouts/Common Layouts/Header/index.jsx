@@ -11,14 +11,14 @@ function Header() {
                         <div className={style.phone}>
                             <a href="tel:+9940559902853">
                                 <i className={`fa-solid fa-phone ${style.phoneIcon}`}></i>
-                                +994-055-990-28-53
+                                <span className={style.text}>+994-055-990-28-53</span>
                             </a>
                         </div>
 
                         <div className={style.email}>
                             <a href="mailto:albinoni1423@gmail.com">
                                 <i className={`fa-regular fa-envelope`}></i>
-                                albinoni1423@gmail.com
+                                <span className={style.text}>albinoni1423@gmail.com</span>
                             </a>
                         </div>
 
@@ -31,7 +31,7 @@ function Header() {
                     <div className={style.rSide}>
                         <div className={style.search}>
                             <input type="text" placeholder='Search More Cars...' />
-                            <i className="fa-solid fa-magnifying-glass"></i>
+                            <i className={`fa-solid fa-magnifying-glass ${style.magnify}`}></i>
                         </div>
 
                         <div className={style.language}>
