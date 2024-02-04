@@ -27,20 +27,21 @@
                     column-gap: 1em;
                     transition: 0.3s;
 
-                    .text{
+                    .text {
                         transition: 0.3s;
                     }
                 }
 
                 &:hover {
-                    a .text{
+                    a .text {
                         color: var(--red);
                     }
                 }
             }
 
-            .openTime{
+            .openTime {
                 cursor: default;
+                
                 border-right: 1px solid black;
             }
         }
@@ -48,10 +49,10 @@
         .rSide {
             display: flex;
             align-items: center;
-            
+
             .search,
             .language,
-            .signIn{
+            .signIn {
                 border-left: 1px solid black;
                 padding: 0.7em 1em;
                 font-size: 15px;
@@ -63,28 +64,135 @@
 
             }
 
-            .search{
+            .search {
 
-                .magnify{
+                .magnify {
                     cursor: pointer;
                     transition: 0.3s;
 
-                    &:hover{
+                    &:hover {
                         color: var(--red);
                     }
                 }
             }
 
-            .signIn{
+            .signIn {
                 border-right: 1px solid black;
 
-                &:hover{
+                &:hover {
                     color: var(--red);
                 }
             }
 
-            .language{
+            .language {
                 cursor: pointer;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width:1200px) {
+    #Header {
+        padding: 0 2em;
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .lSide {
+                display: flex;
+                align-items: center;
+
+                .phone,
+                .email,
+                .openTime {
+                    border-left: 1px solid black;
+                    padding: 0.7em 1em;
+                    font-size: 15px;
+                    color: var(--grey);
+                    display: flex;
+                    align-items: center;
+                    column-gap: 1em;
+
+                    a {
+                        display: flex;
+                        align-items: center;
+                        column-gap: 1em;
+                        transition: 0.3s;
+
+                        .text {
+                            transition: 0.3s;
+                        }
+                    }
+
+                    &:hover {
+                        a .text {
+                            color: var(--red);
+                        }
+                    }
+                }
+
+                .openTime {
+                    cursor: default;
+                    border-right: 1px solid black;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:720px) {
+    #Header {
+        padding: 0 1em;
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .lSide {
+                display: flex;
+                align-items: center;
+
+                .phone,
+                .email,
+                .openTime {
+                    border-left: 0px;
+                    padding: 0.7em 0.5em;
+                    font-size: 13px;
+                    color: var(--grey);
+                    display: flex;
+                    align-items: center;
+                    column-gap: 1em;
+
+                    a {
+                        display: flex;
+                        align-items: center;
+                        column-gap: 1em;
+                        transition: 0.3s;
+
+                        .text {
+                            display: none;
+                            transition: 0.3s;
+                        }
+                    }
+
+                    &:hover {
+                        a .text {
+                            color: var(--red);
+                        }
+                    }
+                }
+
+                .openTime {
+                    cursor: default;
+                    border-right: 0px;
+                }
+            }
+            .rSide{
+                display: none;
             }
         }
     }
