@@ -5,7 +5,7 @@ import style from './index.module.scss'
 function Header() {
     return (
         <>
-            <div id={style.Header}>
+            <header id={style.Header}>
                 <div className={style.container}>
                     <div className={style.lSide}>
                         <div className={style.phone}>
@@ -45,7 +45,7 @@ function Header() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </header>
         </>
     )
 }
