@@ -19,19 +19,28 @@ const proSchema = new Schema({
 })
 
 
+
 async function StartAuction(product) {
     schedule.scheduleJob(product.startTime, async () => {
-        product.isInAuc = true;
-        await product.save();
-        console.log("Auction started for product:", product.title);
+        if (!product.isSaving) {
+            product.isSaving = true; // Set the flag to indicate that save is in progress
+            product.isInAuc = true;
+            await product.save();
+            product.isSaving = false; // Reset the flag after save is completed
+            console.log("Auction started for product:", product.title);
+        }
     });
 }
 
 async function EndAuction(product) {
     schedule.scheduleJob(product.endTime, async () => {
-        product.isInAuc = false;
-        await product.save();
-        console.log("Auction ended for product:", product.title);
+        if (!product.isSaving) {
+            product.isSaving = true; // Set the flag to indicate that save is in progress
+            product.isInAuc = false;
+            await product.save();
+            product.isSaving = false; // Reset the flag after save is completed
+            console.log("Auction ended for product:", product.title);
+        }
     });
 }
 
@@ -40,6 +49,5 @@ proSchema.pre("save", async function (next) {
     await EndAuction(this);
     next();
 });
-
 
 export const Product = mongoose.model("bigprojects", proSchema)
