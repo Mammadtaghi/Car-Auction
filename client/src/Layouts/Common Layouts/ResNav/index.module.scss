@@ -1,8 +1,490 @@
-#ResNav{
-    display: flex;
+#ResNav {
+    display: none;
     align-items: center;
-    
-    .container{
-        
+    padding: 1em 0;
+
+    .container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 1em;
+
+        .linkCon {
+            padding: 0 1em;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            .NavLink {
+                align-self: flex-start;
+                transition: 0.3s;
+                display: flex;
+                align-items: baseline;
+                column-gap: 0.5em;
+
+                .text {
+                    color: inherit;
+                }
+
+                &:global.active {
+                    color: var(--red);
+                }
+
+                &:hover {
+                    color: var(--red);
+                }
+            }
+
+            .dropdown {
+                cursor: pointer;
+                border: 1px solid black;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .dropIcon {
+                    transition: 0.3s;
+                }
+
+                &:hover {
+
+                    .dropIcon {
+                        color: var(--red);
+                    }
+                }
+            }
+        }
+
+        .subLinkCon {
+            color: grey;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            row-gap: 1em;
+
+            .NavLink {
+                color: grey;
+                padding: 0 2em;
+                align-self: flex-start;
+                transition: 0.3s;
+                display: flex;
+                align-items: baseline;
+                column-gap: 0.5em;
+
+                &:global.active {
+                    color: var(--red);
+                }
+
+                &:hover {
+                    color: var(--red);
+                }
+            }
+
+            .topSide {
+                padding: 0 2em;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                row-gap: 1em;
+                transition: 0.4s;
+
+                .NavLink {
+                    align-self: flex-start;
+                    transition: 0.3s;
+                    display: flex;
+                    align-items: baseline;
+                    column-gap: 0.5em;
+
+                    &:global.active {
+                        color: var(--red);
+                    }
+
+                    &:hover {
+                        color: var(--red);
+                    }
+                }
+
+                .subLinkTitle {
+                    margin-bottom: 1em;
+                }
+
+                .text {
+                    cursor: pointer;
+                    display: flex;
+                    align-items: baseline;
+                    padding-left: 1em;
+
+                    .subLinkImgBox {
+                        width: 20px;
+                    }
+
+                    .NavLink {
+                        padding: 0 1em;
+                    }
+
+                    &:hover {
+
+                        .NavLink {
+                            color: var(--red);
+                        }
+                    }
+                }
+            }
+
+            .bottomSide {
+                position: relative;
+
+                .textBox {
+                    font-size: 18px;
+                    padding-left: 2em;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: center;
+
+                    .checkit {
+                        margin-bottom: 2em;
+                    }
+                }
+            }
+        }
     }
+}
+
+@media screen and (max-width:992px) {
+    #ResNav {
+        display: flex;
+        align-items: center;
+        padding: 1em 0;
+
+        .container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: 1em;
+
+            .linkCon {
+                padding: 0 1em;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                .NavLink {
+                    align-self: flex-start;
+                    transition: 0.3s;
+                    display: flex;
+                    align-items: baseline;
+                    column-gap: 0.5em;
+
+                    .text {
+                        color: inherit;
+                    }
+
+                    &:global.active {
+                        color: var(--red);
+                    }
+
+                    &:hover {
+                        color: var(--red);
+                    }
+                }
+
+                .dropdown {
+                    cursor: pointer;
+                    border: 1px solid black;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .dropIcon {
+                        transition: 0.3s;
+                    }
+
+                    &:hover {
+
+                        .dropIcon {
+                            color: var(--red);
+                        }
+                    }
+                }
+            }
+
+            .subLinkCon {
+                color: grey;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                row-gap: 1em;
+
+                .NavLink {
+                    color: grey;
+                    padding: 0 2em;
+                    align-self: flex-start;
+                    transition: 0.3s;
+                    display: flex;
+                    align-items: baseline;
+                    column-gap: 0.5em;
+
+                    &:global.active {
+                        color: var(--red);
+                    }
+
+                    &:hover {
+                        color: var(--red);
+                    }
+                }
+
+                .topSide {
+                    padding: 0 2em;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    row-gap: 1em;
+                    transition: 0.4s;
+
+                    .NavLink {
+                        align-self: flex-start;
+                        transition: 0.3s;
+                        display: flex;
+                        align-items: baseline;
+                        column-gap: 0.5em;
+
+                        &:global.active {
+                            color: var(--red);
+                        }
+
+                        &:hover {
+                            color: var(--red);
+                        }
+                    }
+
+                    .subLinkTitle {
+                        margin-bottom: 1em;
+                    }
+
+                    .text {
+                        cursor: pointer;
+                        display: flex;
+                        align-items: baseline;
+                        padding-left: 1em;
+
+                        .subLinkImgBox {
+                            width: 20px;
+                        }
+
+                        .NavLink {
+                            padding: 0 1em;
+                        }
+
+                        &:hover {
+
+                            .NavLink {
+                                color: var(--red);
+                            }
+                        }
+                    }
+                }
+
+                .bottomSide {
+                    position: relative;
+
+                    .textBox {
+                        font-size: 18px;
+                        padding-left: 2em;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        justify-content: center;
+
+                        .checkit {
+                            margin-bottom: 2em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:540px) {
+    #ResNav {
+        display: flex;
+        align-items: center;
+        padding: 1em 0;
+
+        .container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            row-gap: 1em;
+
+            .linkCon {
+                padding: 0 1em;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                .NavLink {
+                    align-self: flex-start;
+                    transition: 0.3s;
+                    display: flex;
+                    align-items: baseline;
+                    column-gap: 0.5em;
+
+                    .text {
+                        color: inherit;
+                    }
+
+                    &:global.active {
+                        color: var(--red);
+                    }
+
+                    &:hover {
+                        color: var(--red);
+                    }
+                }
+
+                .dropdown {
+                    cursor: pointer;
+                    border: 1px solid black;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .dropIcon {
+                        transition: 0.3s;
+                    }
+
+                    &:hover {
+
+                        .dropIcon {
+                            color: var(--red);
+                        }
+                    }
+                }
+            }
+
+            .subLinkCon {
+                color: grey;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                row-gap: 1em;
+
+                .NavLink {
+                    color: grey;
+                    padding: 0 2em;
+                    align-self: flex-start;
+                    transition: 0.3s;
+                    display: flex;
+                    align-items: baseline;
+                    column-gap: 0.5em;
+
+                    &:global.active {
+                        color: var(--red);
+                    }
+
+                    &:hover {
+                        color: var(--red);
+                    }
+                }
+
+                .topSide {
+                    padding: 0 2em;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    row-gap: 1em;
+                    transition: 0.4s;
+
+                    .NavLink {
+                        align-self: flex-start;
+                        transition: 0.3s;
+                        display: flex;
+                        align-items: baseline;
+                        column-gap: 0.5em;
+
+                        &:global.active {
+                            color: var(--red);
+                        }
+
+                        &:hover {
+                            color: var(--red);
+                        }
+                    }
+
+                    .subLinkTitle {
+                        margin-bottom: 1em;
+                    }
+
+                    .text {
+                        cursor: pointer;
+                        display: flex;
+                        align-items: baseline;
+                        padding-left: 1em;
+
+                        .subLinkImgBox {
+                            width: 20px;
+                        }
+
+                        .NavLink {
+                            padding: 0 1em;
+                        }
+
+                        &:hover {
+
+                            .NavLink {
+                                color: var(--red);
+                            }
+                        }
+                    }
+                }
+
+                .bottomSide {
+                    position: relative;
+
+                    .textBox {
+                        font-size: 15px;
+                        padding-left: 2em;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        justify-content: center;
+
+                        .checkit {
+                            margin-bottom: 2em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+.Hidden {
+    display: none !important;
 }

@@ -2,10 +2,11 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Button from '../../../Components/Common Components/Button';
 import style from './index.module.scss';
+import { useResNav } from '../../../Context/resNavContext';
 
 function Navbar() {
 
-    const [isOpen, setIsOpen] = React.useState(false)
+    const { isOpen, setIsOpen } = useResNav()
 
     return (
         <>
@@ -33,7 +34,7 @@ function Navbar() {
                                 </ul>
                             </li>
                             <li>
-                                <NavLink className={style.NavLink} to={"/"}>Platform</NavLink>
+                                <Link className={style.NavLink} to={"/"}>Platform</Link>
                                 <div className={`${style.subNav} ${style.platform}`}>
                                     <div className={style.list}>
                                         <h3 className={style.subListHead}>Search Cars</h3>
@@ -79,7 +80,7 @@ function Navbar() {
                                 </div>
                             </li>
                             <li>
-                                <NavLink className={style.NavLink} to={"/"}>News</NavLink>
+                                <Link className={style.NavLink} to={"/"}>News</Link>
                             </li>
                             <li>
                                 <NavLink className={style.NavLink} to={"/shop"}>Shop</NavLink>
@@ -99,7 +100,7 @@ function Navbar() {
                                 </ul>
                             </li>
                             <li>
-                                <NavLink className={style.NavLink} to={"/"}>Pages</NavLink>
+                                <Link className={style.NavLink} to={"/"}>Pages</Link>
                                 <ul className={style.subNav}>
                                     <li>
                                         <Link className={style.NavLink} to={"/about"}>About Us</Link>
@@ -119,7 +120,7 @@ function Navbar() {
                                 </ul>
                             </li>
                             <li>
-                                <NavLink className={style.NavLink} to={"/"}>Get in Touch</NavLink>
+                                <Link className={style.NavLink} to={"/"}>Get in Touch</Link>
                             </li>
                             <li>
                                 <NavLink className={style.NavLink} to={"/wishlist"}>
@@ -135,7 +136,7 @@ function Navbar() {
                         <NavLink className={`${style.NavLink}`} to={"/cart"}><i className={`fa-solid fa-basket-shopping ${style.cart}`}></i></NavLink>
                         <span className={`${style.NavLink}`}><i className={`fa-solid fa-magnifying-glass ${style.magnify}`}></i></span>
                         <div className={style.button}><Button>Sell Now</Button></div>
-                        <i className={`fa-solid fa-bars ${style.toggle}`}></i>
+                        <i onClick={()=>setIsOpen(!isOpen)} className={`fa-solid fa-bars ${style.toggle}`}></i>
                     </div>
                 </div>
             </nav>

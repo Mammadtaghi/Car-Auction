@@ -4,13 +4,16 @@ import { Outlet } from 'react-router-dom'
 import Footer from './Common Layouts/Footer'
 import Navbar from './Common Layouts/Navbar'
 import ResNav from './Common Layouts/ResNav'
+import { ResNavProvider } from '../Context/resNavContext'
 
 function MainLayout() {
     return (
         <>
-            <Header />
-            <Navbar />
-            <ResNav />
+            <ResNavProvider>
+                <Header />
+                <Navbar />
+                <ResNav />
+            </ResNavProvider>
             <Outlet />
             <Footer />
         </>
