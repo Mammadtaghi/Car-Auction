@@ -117,3 +117,26 @@ export async function DeleteUserByID(req, res) {
         res.status(500).json({ message: "Something went wrong!" })
     }
 }
+
+
+// Put
+
+export async function ChangePassword(req, res) {
+    try {
+        const { username, password, newPassword } = req.body
+        const user = await User.findOne({ username: username })
+
+        if (!(await bcrypt.compare(password, user.password))) {
+            res.status(406).json({ message: "Password doesn't match!" })
+            return
+        }
+
+        const hashNewPass = await bcrypt.hash(newPassword, 10)
+
+        const updatedUser = await User.findOneAndUpdate({ username: username }, { password: hashNewPass })
+
+        res.status(200).json({ message: "Password updated successfully!" })
+    } catch (error) {
+        res.status(500).json({ message: "Something went wrong!" })
+    }
+}
