@@ -6,15 +6,18 @@ const { Schema } = mongoose
 const proSchema = new Schema({
     title: { type: String, required: true },
     image: { type: String, required: true },
-    info: { type: String, required: true },
-    // categories: [{ type: String, required: true }],
+    info: { type: String, required: true }, // Car details here
+    Auctioneer: { type: String, required: true },
     openingBid: { type: Number, required: true },
     minBid: { type: Number, required: true },
     minStep: { type: Number, required: true },
-    // maxBid: { type: Number, default: 0 },
-    // maxBidOffer: { type: String, default: "" }, // Relation here
+    maxBid: { type: Number, default: 0 },
+    maxBidOffer: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "AuctionUsers"
+    }, // Relation here
     startTime: { type: Date, default: new Date(Date.now() + 1000 * 60 * 0.5) },
-    endTime: { type: Date, default: new Date(Date.now() + 1000 * 60 * 1) },
+    endTime: { type: Date, default: new Date(Date.now() + 1000 * 60 * 0.6) },
     isInAuc: { type: Boolean, default: false },
 })
 
@@ -50,4 +53,4 @@ proSchema.pre("save", async function (next) {
     next();
 });
 
-export const Product = mongoose.model("bigprojects", proSchema)
+export const Product = mongoose.model("carschema", proSchema)
