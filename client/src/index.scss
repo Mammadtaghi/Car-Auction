@@ -1,10 +1,10 @@
-:root{
+:root {
   --grey: #a09d96;
   --red: #fc1111;
 }
 
-html{
-  overflow: hidden;
+html {
+  overflow-x: hidden;
 }
 
 * {
@@ -14,7 +14,7 @@ html{
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
-  font-family: Helvetica, sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 img {
@@ -43,4 +43,24 @@ input {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+}
+
+// Default Button
+
+.Button {
+  color: white;
+  background-color: var(--red);
+  font-size: 20px;
+  font-weight: 700;
+  padding: 0.7em 3em;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  transition: 0.5s;
+
+  &:hover {
+    color: black;
+    background-color: transparent;
+    border: 2px solid black;
+  }
 }

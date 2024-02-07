@@ -1,0 +1,71 @@
+#Register {
+    padding: 10em 3em;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        row-gap: 3em;
+
+        .title {
+            font-size: 2.7em;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .formik {
+            display: flex;
+            flex-direction: column;
+            row-gap: 2em;
+
+            label {
+                font-size: 20px;
+                font-weight: 700;
+                letter-spacing: 1px;
+            }
+
+            .input {
+                padding: 0.5em;
+                font-size: 17px;
+                border: 1px solid black;
+                border-radius: 4px;
+                transition: 0.3s;
+
+                &:focus {
+                    border: 1px solid var(--red);
+                }
+            }
+
+            .error {
+                color: var(--red);
+                letter-spacing: 1px;
+                font-weight: 700;
+                font-style: italic;
+                font-variant-caps: all-petite-caps;
+            }
+        }
+
+        .error {
+            color: var(--red);
+            letter-spacing: 1px;
+            font-weight: 700;
+            font-style: italic;
+            font-variant-caps: all-petite-caps;
+        }
+
+        .bottomText {
+            cursor: default;
+            font-size: 18px;
+
+            .login {
+                font-style: italic;
+                transition: 0.3s;
+
+                &:hover {
+                    color: var(--red);
+                }
+            }
+        }
+    }
+}

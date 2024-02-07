@@ -11,6 +11,8 @@ import CartPage from './Pages/Cart Page'
 import CheckOutPage from './Pages/CheckOut Page'
 import AccountPage from './Pages/Account Page'
 import ErrorPage from './Pages/Error Page'
+import Login from './Pages/Login Page'
+import Register from './Pages/Register Page'
 
 function App() {
 
@@ -20,6 +22,8 @@ function App() {
         <Route index element={<Home />} />
         <Route path='/about' element={<AboutPage />} />
         <Route path='/faq' element={<FAQPage />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
         <Route path='/shop' element={<ShopPage />} />
         <Route element={<UserLayout />} >
           <Route path='/wishlist' element={<WishlistPage />} />

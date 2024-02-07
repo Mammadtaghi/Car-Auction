@@ -109,6 +109,11 @@ function Navbar() {
                                         <Link className={style.NavLink} to={"/faq"}>FAQ</Link>
                                     </li>
                                     <li>
+                                        <Link className={style.NavLink} to={"/login"}>Login</Link>
+                                        /
+                                        <Link className={style.NavLink} to={"/register"}>Register</Link>
+                                    </li>
+                                    <li>
                                         <Link className={style.NavLink} to={"/"}>How It Works</Link>
                                     </li>
                                     <li>
