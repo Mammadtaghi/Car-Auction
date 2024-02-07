@@ -129,7 +129,7 @@ function Navbar() {
                             </li>
                             <li>
                                 <NavLink className={style.NavLink} to={"/wishlist"}>
-                                    <i className="fa-regular fa-heart"></i>
+                                    <i className={`fa-regular fa-heart ${style.text}`}></i>
                                     <span className={style.text}>Favorites</span>
                                 </NavLink>
                             </li>
