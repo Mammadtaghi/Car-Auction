@@ -1,0 +1,38 @@
+#AccountPage{
+    display: flex;
+    min-height: 300px;
+
+    .menu{
+        padding: 2em 0;
+        padding-left: 1.5em;
+        min-width: 20%;
+        border-right: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        row-gap: 2em;
+
+        .menuList{
+            display: flex;
+            flex-direction: column;
+            row-gap: 1em;
+
+            li{
+                cursor: pointer;
+                word-break: keep-all;
+                width: max-content;
+                transition: 0.3s;
+                font-size: 17px;
+
+                &:hover{
+                    color: var(--red);
+                }
+            }
+        }
+
+    }
+
+    .display{
+        padding: 2em 3em;
+        width: 100%;
+    }
+}

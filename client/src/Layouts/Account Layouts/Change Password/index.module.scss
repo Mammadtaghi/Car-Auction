@@ -1,23 +1,16 @@
-#Login {
-    padding: 7em 3em;
+#ChangePassword {
 
     .container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        row-gap: 3em;
-
-        .title {
-            font-size: 2.7em;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
+        row-gap: 2em;
 
         .formik {
+            min-width: 300px;
             display: flex;
             flex-direction: column;
-            row-gap: 2em;
+            row-gap: 1em;
 
             label {
                 font-size: 20px;
@@ -43,20 +36,6 @@
                 font-weight: 700;
                 font-style: italic;
                 font-variant-caps: all-petite-caps;
-            }
-        }
-
-        .register {
-            cursor: default;
-            font-size: 18px;
-
-            .signup {
-                font-style: italic;
-                transition: 0.3s;
-
-                &:hover {
-                    color: var(--red);
-                }
             }
         }
 

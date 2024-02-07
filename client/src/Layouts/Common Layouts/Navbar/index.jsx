@@ -92,7 +92,7 @@ function Navbar() {
                                         <Link className={style.NavLink} to={"/shop"}>Shop page</Link>
                                     </li>
                                     <li>
-                                        <Link className={style.NavLink} to={"/"}>Checkout</Link>
+                                        <Link className={style.NavLink} to={"/checkout"}>Checkout</Link>
                                     </li>
                                     <li>
                                         <Link className={style.NavLink} to={"/cart"}>Cart</Link>

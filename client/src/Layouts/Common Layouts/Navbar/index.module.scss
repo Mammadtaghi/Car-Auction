@@ -105,6 +105,7 @@
                     }
 
                     .platform {
+                        left: -250px !important;
                         overflow: hidden;
                         padding: unset;
                         display: flex;
@@ -273,11 +274,12 @@
                             cursor: pointer;
                             display: flex;
                             align-items: center;
+                            column-gap: 0.5em;
                             font-weight: 600;
                             transition: 0.3s;
-
+    
                             .text {
-                                margin-left: 0.5em;
+                                color: inherit;
                             }
 
                             &:hover {

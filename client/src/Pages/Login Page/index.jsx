@@ -54,13 +54,13 @@ function Login() {
                                 .max(25, 'Must be 25 characters or less')
                                 .required('Required'),
                             password: Yup.string()
-                                .max(20, 'Must be 20 characters or less')
+                                .min(4, 'Must be al least 4 characters!')
                                 .required('Required'),
                         })}
-                        onSubmit={(values, { resetFrom }) => {
+                        onSubmit={(values, { resetForm }) => {
                             console.log(values);
                             Login(values)
-                            resetFrom()
+                            resetForm()
                         }}
                     >
                         <Form className={`${style.formik}`}>
@@ -75,7 +75,6 @@ function Login() {
                             <button className={`Button`} type="submit">Submit</button>
 
                         </Form>
-
                     </Formik>
                     <p className={`${style.register}`}>
                         You haven't sign up yet ? <Link className={`${style.signup}`} to={"/register"}>Sign Up Now!</Link>
