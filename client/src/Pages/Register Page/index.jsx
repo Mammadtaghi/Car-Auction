@@ -5,18 +5,44 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import axios from "axios";
+import { jwtDecode } from 'jwt-decode';
+import { useUser } from '../../Context/userContext';
 
 function Register() {
 
-    const [pass, setPass] = React.useState(true)
+    const [message, setMessage] = React.useState('')
+
+    const { user, setUser, Logout } = useUser()
 
     function CheckPassword(password, correctPassword) {
         if (password === correctPassword) {
-            setPass(true)
             return true
         }
-        setPass(false)
+        setMessage('Please, check correct password!')
         return false
+    }
+
+    async function Register(values) {
+        try {
+            const response = await axios.post('http://localhost:4728/user/register', values)
+            console.log(response.data);
+            setMessage(response.data.message)
+
+            const decodedUser = jwtDecode(response.data.data)
+
+            setUser({
+                username: decodedUser.username,
+                role: decodedUser.role,
+                basket: decodedUser.basket,
+                wishlist: decodedUser.wishlist,
+                vending: decodedUser.vending,
+                token: response.data.data
+            })
+
+        } catch (error) {
+            console.log(error.response.data);
+            setMessage(error.response.data.message)
+        }
     }
 
     return (
@@ -43,7 +69,7 @@ function Register() {
                         })}
                         onSubmit={(values, { resetFrom }) => {
                             console.log(values);
-                            console.log(CheckPassword(values.password, values.correctPassword));
+                            CheckPassword(values.password, values.correctPassword) ? Register(values) : console.log("no");
 
                         }}
                     >
@@ -65,12 +91,10 @@ function Register() {
                         </Form>
                     </Formik>
 
-                    <div className={`${style.error}`}>{pass ? '' : 'Please, write your passward again!'}</div>
-
                     <p className={`${style.bottomText}`}>
                         Do you have an account ? <Link className={`${style.login}`} to={"/login"}>Log In</Link>
                     </p>
-
+                    <p className={style.message}>{message}</p>
                 </div>
             </div>
         </>
