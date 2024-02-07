@@ -12,7 +12,7 @@ export async function Register(req, res) {
         const user = User.findOne({ username: username })
 
         if (user.role) {
-            res.status(406).send(`${user.username} is used!`)
+            res.status(406).json({ message: `${user.username} is used!` })
             return
         }
 
@@ -48,12 +48,12 @@ export async function Login(req, res) {
         const user = await User.findOne({ username: username })
 
         if (!user) {
-            res.status(406).send(`There is no ${username} named User!`)
+            res.status(406).json({ message: `There is no ${username} named User!` })
             return
         }
 
         if (!(await bcrypt.compare(password, user.password))) {
-            res.status(406).send("Username and Password doesn't match!")
+            res.status(406).json({ message: "Username and Password doesn't match!" })
             return
         }
 
@@ -67,7 +67,7 @@ export async function Login(req, res) {
         }, "AlbiKey", { expiresIn: '3h' })
 
         res.status(200).json({
-            message: `${user.username} successfully created!`,
+            message: `Hello, ${user.username}!`,
             data: token
         })
     } catch (error) {
