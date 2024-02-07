@@ -25,12 +25,12 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/shop' element={<ShopPage />} />
+        <Route path='*' element={<ErrorPage />} />
         <Route element={<UserLayout />} >
           <Route path='/wishlist' element={<WishlistPage />} />
           <Route path='/cart' element={<CartPage />} />
           <Route path='/checkout' element={<CheckOutPage />} />
-          <Route path='/user/:id' element={<AccountPage />} />
-          <Route path='*' element={<ErrorPage />} />
+          <Route path='/account/:id' element={<AccountPage />} />
         </Route>
       </Route>
     </Routes>

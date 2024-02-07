@@ -200,9 +200,18 @@
                 }
             }
 
+            .cart {
+                font-size: 20px;
+                cursor: pointer;
+                transition: 0.3s;
+
+                &:hover {
+                    color: var(--red);
+                }
+            }
+
             .user,
             .heart,
-            .cart,
             .toggle,
             .magnify {
                 font-size: 20px;
@@ -410,7 +419,7 @@
             .rSide {
                 display: flex;
                 align-items: center;
-                column-gap: 1em;
+                column-gap: 0.5em;
 
                 .NavLink {
                     font-weight: 600;
@@ -421,9 +430,18 @@
                     }
                 }
 
+                .cart {
+                    font-size: 20px;
+                    cursor: pointer;
+                    transition: 0.3s;
+    
+                    &:hover {
+                        color: var(--red);
+                    }
+                }
+
                 .user,
                 .heart,
-                .cart,
                 .toggle,
                 .magnify {
                     font-size: 20px;
@@ -502,7 +520,7 @@
                 }
 
                 .button {
-                    display: none;
+                    display: none !important;
                 }
             }
         }
@@ -570,7 +588,7 @@
                 }
 
                 .button {
-                    display: none;
+                    display: none !important;
                 }
             }
         }

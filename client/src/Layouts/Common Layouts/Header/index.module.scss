@@ -41,7 +41,7 @@
 
             .openTime {
                 cursor: default;
-                
+
                 border-right: 1px solid black;
             }
         }
@@ -53,7 +53,7 @@
             .search,
             .language,
             .signIn {
-                border-left: 1px solid black;
+                border-right: 1px solid black;
                 padding: 0.7em 1em;
                 font-size: 15px;
                 color: var(--grey);
@@ -65,6 +65,7 @@
             }
 
             .search {
+                border-left: 1px solid black;
 
                 .magnify {
                     cursor: pointer;
@@ -76,16 +77,16 @@
                 }
             }
 
+            .language {
+                cursor: pointer;
+            }
+
             .signIn {
-                border-right: 1px solid black;
+                display: flex;
 
                 &:hover {
                     color: var(--red);
                 }
-            }
-
-            .language {
-                cursor: pointer;
             }
         }
     }
@@ -140,7 +141,7 @@
                 }
             }
 
-            .rSide{
+            .rSide {
                 display: none;
             }
         }
@@ -195,9 +196,14 @@
                     border-right: 0px;
                 }
             }
-            .rSide{
+
+            .rSide {
                 display: none;
             }
         }
     }
+}
+
+.displayNone{
+    display: none;
 }

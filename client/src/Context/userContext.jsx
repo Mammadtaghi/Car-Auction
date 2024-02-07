@@ -5,10 +5,10 @@ const userContext = createContext()
 
 export const UserProvider = ({ children }) => {
 
-    const [user, setUser, ManualUpdate] = useLocalstorage('user', { username: '', role: '', basket: [], wishlist: [], vending: [], token: '' })
+    const [user, setUser, ManualUpdate] = useLocalstorage('user', { id: '', username: '', role: '', basket: [], wishlist: [], vending: [], token: '' })
 
     function Logout() {
-        setUser({ username: '', role: '', basket: [], wishlist: [], vending: [], token: '' })
+        setUser({ id: '', username: '', role: '', basket: [], wishlist: [], vending: [], token: '' })
     }
 
     const data = { user, setUser, Logout }

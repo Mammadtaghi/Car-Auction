@@ -23,6 +23,7 @@ function Login() {
             const decodedUser = jwtDecode(response.data.data)
 
             setUser({
+                id: decodedUser.id,
                 username: decodedUser.username,
                 role: decodedUser.role,
                 basket: decodedUser.basket,

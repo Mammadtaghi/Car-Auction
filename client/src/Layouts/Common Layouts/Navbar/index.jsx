@@ -3,10 +3,13 @@ import { Link, NavLink } from 'react-router-dom';
 import Button from '../../../Components/Common Components/Button';
 import style from './index.module.scss';
 import { useResNav } from '../../../Context/resNavContext';
+import { useUser } from '../../../Context/userContext';
 
 function Navbar() {
 
     const { isOpen, setIsOpen } = useResNav()
+
+    const { user, setUser, Logout } = useUser()
 
     return (
         <>
@@ -86,16 +89,16 @@ function Navbar() {
                                 <NavLink className={style.NavLink} to={"/shop"}>Shop</NavLink>
                                 <ul className={style.subNav}>
                                     <li>
-                                        <Link className={style.NavLink} to={"/"}>Shop page</Link>
+                                        <Link className={style.NavLink} to={"/shop"}>Shop page</Link>
                                     </li>
                                     <li>
                                         <Link className={style.NavLink} to={"/"}>Checkout</Link>
                                     </li>
                                     <li>
-                                        <Link className={style.NavLink} to={"/"}>Cart</Link>
+                                        <Link className={style.NavLink} to={"/cart"}>Cart</Link>
                                     </li>
                                     <li>
-                                        <Link className={style.NavLink} to={"/"}>My Account</Link>
+                                        <Link className={style.NavLink} to={!user.role ? "/login" : `/account/${user.id}`}>My Account</Link>
                                     </li>
                                 </ul>
                             </li>
@@ -136,11 +139,11 @@ function Navbar() {
                         </ul>
                     </div>
                     <div className={style.rSide}>
-                        <NavLink className={`${style.NavLink}`} to={"/account"}><i className={`fa-regular fa-user ${style.user}`}></i></NavLink>
+                        <NavLink className={`${style.NavLink}`} to={!user.role ? "/login" : `/account/${user.id}`}><i className={`fa-regular fa-user ${style.user}`}></i></NavLink>
                         <NavLink className={`${style.NavLink}`} to={"/wishlist"}><i className={`fa-regular fa-heart ${style.heart}`}></i></NavLink>
                         <NavLink className={`${style.NavLink}`} to={"/cart"}><i className={`fa-solid fa-basket-shopping ${style.cart}`}></i></NavLink>
                         <span className={`${style.NavLink}`}><i className={`fa-solid fa-magnifying-glass ${style.magnify}`}></i></span>
-                        <div className={style.button}><Button>Sell Now</Button></div>
+                        <button className={`NavButton ${style.button}`}>Sell Now</button>
                         <i onClick={()=>setIsOpen(!isOpen)} className={`fa-solid fa-bars ${style.toggle}`}></i>
                     </div>
                 </div>

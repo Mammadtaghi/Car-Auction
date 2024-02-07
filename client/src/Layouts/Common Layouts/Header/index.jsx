@@ -1,8 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import style from './index.module.scss'
+import { useUser } from '../../../Context/userContext'
 
 function Header() {
+
+    const { user, setUser, Logout } = useUser()
+
     return (
         <>
             <header id={style.Header}>
@@ -40,8 +44,8 @@ function Header() {
                             <i className="fa-solid fa-caret-down"></i>
                         </div>
 
-                        <div className={style.signIn}>
-                            <Link>Sing In</Link>
+                        <div className={ user.role ? style.displayNone : style.signIn}>
+                            <Link to={"/login"}>Sing In</Link>
                         </div>
                     </div>
                 </div>
