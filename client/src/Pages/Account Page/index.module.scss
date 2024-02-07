@@ -1,29 +1,35 @@
-#AccountPage{
+#AccountPage {
+    position: relative;
     display: flex;
     min-height: 300px;
 
-    .menu{
+    .menu {
         padding: 2em 0;
         padding-left: 1.5em;
-        min-width: 20%;
+        min-width: 250px;
         border-right: 1px solid black;
         display: flex;
         flex-direction: column;
-        row-gap: 2em;
+        row-gap: 1.5em;
 
-        .menuList{
+        .arrow{
+            display: none;
+        }
+
+        .menuList {
             display: flex;
             flex-direction: column;
             row-gap: 1em;
 
-            li{
+            li {
                 cursor: pointer;
                 word-break: keep-all;
                 width: max-content;
                 transition: 0.3s;
                 font-size: 17px;
 
-                &:hover{
+                &:hover {
+                    transform: translateX(10px);
                     color: var(--red);
                 }
             }
@@ -31,8 +37,75 @@
 
     }
 
-    .display{
+    .display {
         padding: 2em 3em;
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 678px) {
+    #AccountPage {
+        display: flex;
+        min-height: 300px;
+
+        .menu {
+            height: 100%;
+            position: absolute;
+            background-color: #fff;
+            padding: 1em 0;
+            padding-left: 1.5em;
+            min-width: 200px;
+            border-right: 1px solid black;
+            display: flex;
+            flex-direction: column;
+            row-gap: 1.5em;
+            transition: 0.5s;
+            
+            .arrow{
+                cursor: pointer;
+                font-size: 20px;
+                display: block;
+                position: absolute;
+                top: 0.3em;
+                left: calc(100% + 1.4em);
+                
+                i{
+                    transform: rotate('0deg');
+                    transition: 0.3s;
+                }
+
+                &:hover{
+
+                    i{
+                        color: var(--red);
+                    }
+                }
+            }
+
+            .menuList {
+                display: flex;
+                flex-direction: column;
+                row-gap: 1em;
+
+                li {
+                    cursor: pointer;
+                    word-break: keep-all;
+                    width: max-content;
+                    transition: 0.3s;
+                    font-size: 17px;
+
+                    &:hover {
+                        transform: translateX(10px);
+                        color: var(--red);
+                    }
+                }
+            }
+
+        }
+
+        .display {
+            padding: 3em 1.5em;
+            width: 100%;
+        }
     }
 }

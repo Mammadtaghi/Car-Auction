@@ -8,6 +8,8 @@ import useLocalstorage from '../../Hooks/useLocalstorage';
 
 function AccountPage() {
 
+    const [isSidebarOpen, setIsSidebarOpen] = React.useState(false)
+
     const [page, setPage] = useLocalstorage('accountPage', 'profile')
 
     const { user, setUser, Logout } = useUser()
@@ -19,8 +21,11 @@ function AccountPage() {
                 <title>AccountPage</title>
             </Helmet>
             <div id={style.AccountPage}>
-                <div className={`${style.menu}`}>
-                    <h3 className={style.menuTitle}>Account</h3>
+                <div style={isSidebarOpen ? { left: '0' } : { left: '-200px' }} className={`${style.menu}`}>
+                    <div onClick={()=>setIsSidebarOpen(!isSidebarOpen)} className={style.arrow}>
+                        <i className={`fa-solid fa-arrow-${isSidebarOpen ? 'left' : 'right'}-long`}></i>
+                    </div>
+                    <h2 className={style.menuTitle}>Account</h2>
                     <ul className={style.menuList}>
                         <li onClick={() => setPage('profile')}>Profile</li>
                         <li onClick={() => setPage('changePassword')}>Change Password</li>
@@ -28,7 +33,7 @@ function AccountPage() {
                 </div>
 
                 <div className={`${style.display}`}>{
-                    page && page === 'profile' ? <Profile /> : page==='changePassword' ? <ChangePassword /> : ''
+                    page && page === 'profile' ? <Profile /> : page === 'changePassword' ? <ChangePassword /> : ''
                 }</div>
             </div>
         </>

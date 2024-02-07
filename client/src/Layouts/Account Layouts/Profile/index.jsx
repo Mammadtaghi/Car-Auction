@@ -25,7 +25,7 @@ function Profile() {
                 <div className={style.container}>
                     <h2 className={`${style.username}`}>Username: {user.username}</h2>
                     <h3 className={`${style.role}`}>Role: {user.role}</h3>
-                    <button className={`Button`} onClick={handleLogOut}>Log Out</button>
+                    <button className={`Button2`} onClick={handleLogOut}>Log Out</button>
                 </div>
             </div>
         </>

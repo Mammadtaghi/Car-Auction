@@ -3,12 +3,14 @@ import style from './index.module.scss'
 import { Helmet } from "react-helmet-async";
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { jwtDecode } from 'jwt-decode';
 import { useUser } from '../../Context/userContext';
 
 function Register() {
+
+    const navigate = useNavigate()
 
     const [message, setMessage] = React.useState('')
 
@@ -39,6 +41,8 @@ function Register() {
                 vending: decodedUser.vending,
                 token: response.data.data
             })
+
+            navigate('/')
 
         } catch (error) {
             console.log(error.response.data);
