@@ -22,9 +22,14 @@ function AccountPage() {
             </Helmet>
             <div id={style.AccountPage}>
                 <div style={isSidebarOpen ? { left: '0' } : { left: '-200px' }} className={`${style.menu}`}>
-                    <div onClick={()=>setIsSidebarOpen(!isSidebarOpen)} className={style.arrow}>
+                    <div onClick={() => setIsSidebarOpen(!isSidebarOpen)} className={style.arrow}>
                         <i className={`fa-solid fa-arrow-${isSidebarOpen ? 'left' : 'right'}-long`}></i>
                     </div>
+                    <h2 className={style.menuTitle}>Account</h2>
+                    <ul className={style.menuList}>
+                        <li onClick={() => setPage('profile')}>Profile</li>
+                        <li onClick={() => setPage('changePassword')}>Change Password</li>
+                    </ul>
                     <h2 className={style.menuTitle}>Account</h2>
                     <ul className={style.menuList}>
                         <li onClick={() => setPage('profile')}>Profile</li>

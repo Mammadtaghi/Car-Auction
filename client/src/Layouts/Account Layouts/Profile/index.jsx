@@ -12,7 +12,7 @@ function Profile() {
 
     function handleLogOut() {
         Logout()
-        navigate('/login')
+        navigate('/')
     }
 
     return (

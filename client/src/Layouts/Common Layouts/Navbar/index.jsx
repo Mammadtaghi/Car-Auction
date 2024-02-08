@@ -77,7 +77,7 @@ function Navbar() {
                                         <div className={style.textBox}>
                                             <h2>Auction Lot #12</h2>
                                             <span className={style.checkit}>Check it Now!</span>
-                                            <Button stl={{ border: "0px" }}>View Entry</Button>
+                                            <button className={`Button2`}>View Entry</button>
                                         </div>
                                     </div>
                                 </div>

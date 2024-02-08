@@ -1,5 +1,8 @@
 #Navbar {
-    position: relative;
+    background-color: #eaeaea;
+    position: sticky;
+    top: 41px;
+    z-index: 15;
     height: 72px;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
@@ -62,6 +65,7 @@
                     .subNav {
                         visibility: hidden;
                         opacity: 0;
+                        transform: scale(0);
                         background-color: white;
                         word-break: keep-all;
                         min-width: calc(100% + 70px);
@@ -110,6 +114,7 @@
                         padding: unset;
                         display: flex;
                         flex-direction: row;
+                        transition: 0.5s !important;
 
                         .list {
                             padding: 1.5em;
@@ -180,6 +185,7 @@
                         .subNav {
                             visibility: visible;
                             opacity: 1;
+                            transform: scale(1);
                         }
                     }
                 }
