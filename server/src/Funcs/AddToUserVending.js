@@ -4,7 +4,7 @@ export async function AddToUserVending(req, res) {
     try {
         const foundUser = await User.findById(req.id)
         
-        const updatedVending = [...foundUser.vending, req.newProduct._id]
+        const updatedVending = [...foundUser.vending, req.newProduct]
 
         console.log(`Updating ${foundUser.username}'s vending...`);
 

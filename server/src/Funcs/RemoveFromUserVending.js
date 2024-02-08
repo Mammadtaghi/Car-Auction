@@ -11,7 +11,9 @@ export async function RemoveFromUserVending(req, res, next) {
         
         const foundProduct = await Product.findById(id)
 
-        const updatedVending = [...foundUser.vending.filter(x => x.toString() !== id.toString())]
+        const updatedVending = [...foundUser.vending.filter(x => x._id.toString() !== id.toString())]
+
+        console.log(updatedVending);
         
         console.log(`Updating ${foundUser.username}'s vending...`);
 

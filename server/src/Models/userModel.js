@@ -14,7 +14,10 @@ const userSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'carschema'
     }],
-    vending: [{ type: String }],
+    vending: [{
+        type: mongoose.Types.ObjectId,
+        ref: 'carschema'
+    }],
 })
 
 export const User = mongoose.model('AuctionUsers', userSchema)
