@@ -57,3 +57,11 @@
         border: 2px solid black;
     }
 }
+
+// HeaderHolder
+
+#HeaderHolder{
+    position: sticky;
+    top: 0;
+    z-index: 15;
+}

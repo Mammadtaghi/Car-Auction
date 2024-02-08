@@ -10,9 +10,11 @@ function MainLayout() {
     return (
         <>
             <ResNavProvider>
-                <Header />
-                <Navbar />
-                <ResNav />
+                <div id={`HeaderHolder`}>
+                    <Header />
+                    <Navbar />
+                    <ResNav />
+                </div>
             </ResNavProvider>
             <Outlet />
             <Footer />

@@ -59,14 +59,14 @@ function ChangePassword() {
                     >
                         <Form className={`${style.formik}`}>
                             <label htmlFor="password">Old Password</label>
-                            <Field className={style.input} name="password" type="text" />
+                            <Field className={style.input} name="password" type="password" />
                             <div className={style.error}><ErrorMessage name="password" /></div>
 
                             <label htmlFor="newPassword">New Password</label>
-                            <Field className={style.input} name="newPassword" type="text" />
+                            <Field className={style.input} name="newPassword" type="password" />
                             <div className={style.error}><ErrorMessage name="newPassword" /></div>
 
-                            <button className={`Button`} type="submit">Submit</button>
+                            <button className={`Button`} type="submit">Change</button>
                         </Form>
                     </Formik>
                     <p className={style.message}>{message}</p>

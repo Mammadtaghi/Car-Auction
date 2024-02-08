@@ -5,6 +5,7 @@ import { useUser } from '../../Context/userContext';
 import Profile from '../../Layouts/Account Layouts/Profile';
 import ChangePassword from '../../Layouts/Account Layouts/Change Password';
 import useLocalstorage from '../../Hooks/useLocalstorage';
+import CreateNewProduct from '../../Layouts/Account Layouts/Create New Product';
 
 function AccountPage() {
 
@@ -30,15 +31,15 @@ function AccountPage() {
                         <li onClick={() => setPage('profile')}>Profile</li>
                         <li onClick={() => setPage('changePassword')}>Change Password</li>
                     </ul>
-                    <h2 className={style.menuTitle}>Account</h2>
+                    <h2 className={style.menuTitle}>Auction</h2>
                     <ul className={style.menuList}>
-                        <li onClick={() => setPage('profile')}>Profile</li>
-                        <li onClick={() => setPage('changePassword')}>Change Password</li>
+                        <li onClick={() => setPage('myProducts')}>My Products</li>
+                        <li onClick={() => setPage('newProduct')}>Create New Product</li>
                     </ul>
                 </div>
 
                 <div className={`${style.display}`}>{
-                    page && page === 'profile' ? <Profile /> : page === 'changePassword' ? <ChangePassword /> : ''
+                    page && page === 'profile' ? <Profile /> : page === 'changePassword' ? <ChangePassword /> : page === 'newProduct' ? <CreateNewProduct /> : ''
                 }</div>
             </div>
         </>
