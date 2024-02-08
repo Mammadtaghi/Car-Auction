@@ -6,8 +6,17 @@ const { Schema } = mongoose
 const proSchema = new Schema({
     title: { type: String, required: true },
     image: { type: String, required: true },
-    info: { type: String, required: true }, // Car details here
-    Auctioneer: { type: String, required: true },
+    info: {
+        model: { type: String, default: 'Tesla' },
+        year: { type: Number, default: 2020 },
+        body: { type: String, enum: ['Sedan', 'SUV', 'Sports', 'Convertible', 'Compact', 'Pickup', 'Crossover', 'Electric'], default: 'Electric' },
+        color: { type: String, default: 'Red' },
+        condition: { type: String, enum: ['Excellent', 'Good', 'Not Bad'], default: 'Good' }
+    },
+    Auctioneer: {
+        type: mongoose.Types.ObjectId,
+        ref: "AuctionUsers"
+    },
     openingBid: { type: Number, required: true },
     minBid: { type: Number, required: true },
     minStep: { type: Number, required: true },
@@ -15,9 +24,9 @@ const proSchema = new Schema({
     maxBidOffer: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "AuctionUsers"
-    }, // Relation here
-    startTime: { type: Date, default: new Date(Date.now() + 1000 * 60 * 0.5) },
-    endTime: { type: Date, default: new Date(Date.now() + 1000 * 60 * 0.6) },
+    },
+    startTime: { type: Date, required: true },
+    endTime: { type: Date, required: true },
     isInAuc: { type: Boolean, default: false },
 })
 

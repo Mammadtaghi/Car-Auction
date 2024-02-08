@@ -1,3 +1,4 @@
+import { User } from "../Models/userModel.js";
 import { Product } from "./../Models/productModel.js";
 
 
@@ -5,12 +6,15 @@ import { Product } from "./../Models/productModel.js";
 
 export async function CreateNewProduct(req, res, next) {
     try {
-        const { title, image, info, openingBid, minBid, minStep, startTime, endTime } = req.body
+        const { title, image, info, openingBid, minBid, minStep, startTime=Date.now(), endTime=Date.now() } = req.body
+
+        const user = await User.findById(req.id)
+
         const newProduct = await Product.create({
             title: title,
             image: image,
             info: info,
-            Auctioneer: req.username,
+            Auctioneer: user,
             openingBid: openingBid,
             minBid: minBid,
             minStep: minStep,
