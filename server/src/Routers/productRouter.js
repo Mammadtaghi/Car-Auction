@@ -1,8 +1,9 @@
 import { AddToUserVending } from "../Funcs/AddToUserVending.js";
 import { RemoveFromUserVending } from "../Funcs/RemoveFromUserVending.js";
 import { CheckAdmin } from "../Middlewares/checkAdmin.js";
+import { CheckOffer } from "../Middlewares/checkOffer.js";
 import { CheckToken } from "../Middlewares/checkToken.js";
-import { CreateNewProduct, DeleteProductByID, GetProductByID, GetProducts } from "./../Controllers/productController.js";
+import { CreateNewProduct, DeleteProductByID, GetProductByID, GetProducts, UpdateMaxBid } from "./../Controllers/productController.js";
 import express from "express";
 
 
@@ -25,5 +26,8 @@ router.get("/:id", GetProductByID)
 router.delete("/:id", CheckToken, RemoveFromUserVending, DeleteProductByID)
 
 
+// Put
+
+router.put("/update-max-bid/:id", CheckToken, CheckOffer, UpdateMaxBid)
 
 export default router

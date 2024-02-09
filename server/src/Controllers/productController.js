@@ -6,7 +6,7 @@ import { Product } from "./../Models/productModel.js";
 
 export async function CreateNewProduct(req, res, next) {
     try {
-        const { title, image, info, openingBid, minBid, minStep, startTime=Date.now(), endTime=Date.now() } = req.body
+        const { title, image, info, openingBid, minBid, minStep, startTime = Date.now(), endTime = Date.now() } = req.body
 
         const user = await User.findById(req.id)
 
@@ -46,7 +46,7 @@ export async function GetProducts(req, res) {
 export async function GetProductByID(req, res) {
     try {
         const { id } = req.params
-        const product = await Product.findById(id)
+        const product = await Product.findById(id).populate(['Auctioneer', 'maxBidOffer'])
         res.status(200).send(product)
     } catch (error) {
         res.status(500).json({ message: "Something went wrong!" })
@@ -61,6 +61,24 @@ export async function DeleteProductByID(req, res) {
         const { id } = req.params
         const product = await Product.findByIdAndDelete(id)
         res.status(200).send(`${product.title} is deleted succesfully!`)
+    } catch (error) {
+        res.status(500).json({ message: "Something went wrong!" })
+    }
+}
+
+
+// Put
+
+export async function UpdateMaxBid(req, res) {
+    try {
+        const { id } = req.params
+        const { bid } = req.body
+
+        const user = await User.findById(req.id)
+
+        const product = await Product.findByIdAndUpdate(id, { maxBid: bid, maxBidOffer: user })
+
+        res.status(202).json({ message: `${user.username} you have the highest bid on ${product.title} product!` })
     } catch (error) {
         res.status(500).json({ message: "Something went wrong!" })
     }

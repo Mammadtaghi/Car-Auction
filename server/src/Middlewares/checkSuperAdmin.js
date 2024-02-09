@@ -4,7 +4,7 @@ export async function CheckAdmin(req, res, next) {
             res.status(406).json({ message: "You need to be SuperAdmin to do this!" })
             return
         }
-        console.log(`Hello, ${req.username}`);
+        console.log(`Hello, ${req.username}!`);
         next()
     } catch (error) {
         res.status(500).json({ message: "Something went wrong!" })
