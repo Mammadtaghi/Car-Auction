@@ -19,7 +19,6 @@ function Profile() {
         <>
             <Helmet>
                 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-                <title>Profile</title>
             </Helmet>
             <div id={style.Profile}>
                 <div className={style.container}>

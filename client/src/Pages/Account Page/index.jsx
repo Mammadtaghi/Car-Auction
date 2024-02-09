@@ -6,6 +6,7 @@ import Profile from '../../Layouts/Account Layouts/Profile';
 import ChangePassword from '../../Layouts/Account Layouts/Change Password';
 import useLocalstorage from '../../Hooks/useLocalstorage';
 import CreateNewProduct from '../../Layouts/Account Layouts/Create New Product';
+import MyProducts from '../../Layouts/Account Layouts/My Products';
 
 function AccountPage() {
 
@@ -19,7 +20,7 @@ function AccountPage() {
         <>
             <Helmet>
                 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-                <title>AccountPage</title>
+                <title>Profile</title>
             </Helmet>
             <div id={style.AccountPage}>
                 <div style={isSidebarOpen ? { left: '0' } : { left: '-200px' }} className={`${style.menu}`}>
@@ -39,7 +40,14 @@ function AccountPage() {
                 </div>
 
                 <div className={`${style.display}`}>{
-                    page && page === 'profile' ? <Profile /> : page === 'changePassword' ? <ChangePassword /> : page === 'newProduct' ? <CreateNewProduct /> : ''
+                    page && page === 'profile' ? <Profile />
+                        :
+                        page === 'changePassword' ? <ChangePassword />
+                            :
+                            page === 'newProduct' ? <CreateNewProduct />
+                                :
+                                page === 'myProducts' ? <MyProducts />
+                                    : ''
                 }</div>
             </div>
         </>

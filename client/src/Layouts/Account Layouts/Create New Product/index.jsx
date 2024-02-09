@@ -14,6 +14,16 @@ function CreateNewProduct() {
 
     async function CreateNewProduct(values) {
 
+        const info = {
+            model: values.model,
+            body: values.body,
+            year: values.year,
+            color: values.color,
+            condition: values.condition,
+        }
+
+        values.info = info
+        
         values.username = user.username
 
         try {
@@ -37,19 +47,28 @@ function CreateNewProduct() {
         <>
             <Helmet>
                 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-                <title>CreateNewProduct</title>
             </Helmet>
             <div id={style.CreateNewProduct}>
                 <div className={style.container}>
                     <Formik
-                        initialValues={{ title: '', image: '', info: '', openingBid: '', minBid: '', minStep: '' }}
+                        initialValues={{ title: '', image: '', model: '', year: '', body: '', color: '', condition: '', openingBid: '', minBid: '', minStep: '' }}
                         validationSchema={Yup.object({
                             title: Yup.string()
                                 .max(20, 'Must be less than 20 characters!')
                                 .required('Required'),
                             image: Yup.string()
                                 .required('Required'),
-                            info: Yup.string()
+                            model: Yup.string()
+                                .required('Required'),
+                            year: Yup.number()
+                                .min(2010, "You can't sell old cars!")
+                                .max(new Date(Date.now()).getFullYear(), "I don't think you can travel in time!")
+                                .required('Required'),
+                            body: Yup.string()
+                                .required('Required'),
+                            color: Yup.string()
+                                .required('Required'),
+                            condition: Yup.string()
                                 .required('Required'),
                             openingBid: Yup.number()
                                 .min(1, 'Do you want to sell or donate?!')
@@ -67,7 +86,7 @@ function CreateNewProduct() {
                         })}
                         onSubmit={(values, { resetForm }) => {
                             CreateNewProduct(values)
-                            // resetForm()
+                            resetForm()
                         }}
                     >
                         <Form className={`${style.formik}`}>
@@ -79,9 +98,109 @@ function CreateNewProduct() {
                             <Field className={style.input} name="image" type="text" />
                             <div className={style.error}><ErrorMessage name="image" /></div>
 
-                            <label htmlFor="info">Info</label>
-                            <Field className={style.input} name="info" type="text" />
-                            <div className={style.error}><ErrorMessage name="info" /></div>
+                            <label htmlFor="model">Model</label>
+                            <Field className={style.input} name="model" type="text" />
+                            <div className={style.error}><ErrorMessage name="model" /></div>
+
+                            <label htmlFor="year">Year</label>
+                            <Field className={style.input} name="year" type="text" />
+                            <div className={style.error}><ErrorMessage name="year" /></div>
+
+                            <label htmlFor="body">Body Type</label>
+                            <label className={style.radioLabel} htmlFor="body">
+                                <Field className={style.input} name="body" type="radio" value="Sedan" />
+                                <span className={style.text}>Sedan</span>
+                            </label>
+                            <label className={style.radioLabel} htmlFor="body">
+                                <Field className={style.input} name="body" type="radio" value="Sports" />
+                                <span className={style.text}>Sports</span>
+                            </label>
+                            <label className={style.radioLabel} htmlFor="body">
+                                <Field className={style.input} name="body" type="radio" value="SUV" />
+                                <span className={style.text}>SUV</span>
+                            </label>
+                            <label className={style.radioLabel} htmlFor="body">
+                                <Field className={style.input} name="body" type="radio" value="Convertible" />
+                                <span className={style.text}>Convertible</span>
+                            </label>
+                            <label className={style.radioLabel} htmlFor="body">
+                                <Field className={style.input} name="body" type="radio" value="Compact" />
+                                <span className={style.text}>Compact</span>
+                            </label>
+                            <label className={style.radioLabel} htmlFor="body">
+                                <Field className={style.input} name="body" type="radio" value="Pickup" />
+                                <span className={style.text}>Pickup</span>
+                            </label>
+                            <label className={style.radioLabel} htmlFor="body">
+                                <Field className={style.input} name="body" type="radio" value="Electric" />
+                                <span className={style.text}>Electric</span>
+                            </label>
+                            <label className={style.radioLabel} htmlFor="body">
+                                <Field className={style.input} name="body" type="radio" value="Crossover" />
+                                <span className={style.text}>Crossover</span>
+                            </label>
+                            <div className={style.error}><ErrorMessage name="body" /></div>
+
+                            <label htmlFor="color">Color</label>
+                            <label className={style.radioLabel} htmlFor="color">
+                                <Field className={style.input} name="color" type="radio" value="Black" />
+                                <span className={style.text}>Black</span>
+                            </label>
+                            <label className={style.radioLabel} htmlFor="color">
+                                <Field className={style.input} name="color" type="radio" value="White" />
+                                <span className={style.text}>White</span>
+                            </label>
+                            <label className={style.radioLabel} htmlFor="color">
+                                <Field className={style.input} name="color" type="radio" value="Gray" />
+                                <span className={style.text}>Gray</span>
+                            </label>
+                            <label className={style.radioLabel} htmlFor="color">
+                                <Field className={style.input} name="color" type="radio" value="Blue" />
+                                <span className={style.text}>Blue</span>
+                            </label>
+                            <label className={style.radioLabel} htmlFor="color">
+                                <Field className={style.input} name="color" type="radio" value="Cyan" />
+                                <span className={style.text}>Cyan</span>
+                            </label>
+                            <label className={style.radioLabel} htmlFor="color">
+                                <Field className={style.input} name="color" type="radio" value="Red" />
+                                <span className={style.text}>Red</span>
+                            </label>
+                            <label className={style.radioLabel} htmlFor="color">
+                                <Field className={style.input} name="color" type="radio" value="Green" />
+                                <span className={style.text}>Green</span>
+                            </label>
+                            <label className={style.radioLabel} htmlFor="color">
+                                <Field className={style.input} name="color" type="radio" value="Yellow" />
+                                <span className={style.text}>Yellow</span>
+                            </label>
+                            <label className={style.radioLabel} htmlFor="color">
+                                <Field className={style.input} name="color" type="radio" value="Purple" />
+                                <span className={style.text}>Purple</span>
+                            </label>
+                            <label className={style.radioLabel} htmlFor="color">
+                                <Field className={style.input} name="color" type="radio" value="Orange" />
+                                <span className={style.text}>Orange</span>
+                            </label>
+                            <label className={style.radioLabel} htmlFor="color">
+                                <Field className={style.input} name="color" type="radio" value="Metallic" />
+                                <span className={style.text}>Metallic</span>
+                            </label>
+                            <div className={style.error}><ErrorMessage name="color" /></div>
+
+                            <label htmlFor="condition">Condition</label>
+                            <label className={style.radioLabel} htmlFor="condition">
+                                <Field className={style.input} name="condition" type="radio" value="Excellent" />
+                                <span className={style.text}>Excellent</span>
+                            </label>
+                            <label className={style.radioLabel} htmlFor="condition">
+                                <Field className={style.input} name="condition" type="radio" value="Good" />
+                                <span className={style.text}>Good</span>
+                            </label>
+                            <label className={style.radioLabel} htmlFor="condition">
+                                <Field className={style.input} name="condition" type="radio" value="Not Bad" />
+                                <span className={style.text}>Not Bad</span>
+                            </label>                            <div className={style.error}><ErrorMessage name="condition" /></div>
 
                             <label htmlFor="openingBid">Opening Bid</label>
                             <Field className={style.input} name="openingBid" type="text" />

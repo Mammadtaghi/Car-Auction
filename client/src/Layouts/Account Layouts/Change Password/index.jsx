@@ -37,7 +37,6 @@ function ChangePassword() {
         <>
             <Helmet>
                 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-                <title>ChangePassword</title>
             </Helmet>
             <div id={style.ChangePassword}>
                 <div className={style.container}>

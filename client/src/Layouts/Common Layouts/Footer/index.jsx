@@ -52,7 +52,7 @@ function Footer() {
                         <div style={{ gridArea: 'grid4' }} className={`${style.footerListCon}`}>
                             <h2 className={style.listTitle}>Useful Information</h2>
                             <ul className={style.list}>
-                                <li><NavLink to={`${user.role ? "/wishlist" : "/login"}`} className={`${style.arrow}`}>My Account</NavLink></li>
+                                <li><NavLink to={`${user.role ? `/account/${user.id}` : "/login"}`} className={`${style.arrow}`}>My Account</NavLink></li>
                                 <li><NavLink to={"/"} className={`${style.arrow}`}>Dashboard</NavLink></li>
                                 <li><NavLink to={"/"} className={`${style.arrow}`}>Contact</NavLink></li>
                                 <li>

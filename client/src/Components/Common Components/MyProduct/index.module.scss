@@ -1,0 +1,96 @@
+#MyProduct{
+    border-radius: 10%;
+    background-color: #252627;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+    overflow: hidden;
+
+    .imgBox{
+        width: 100%;
+    }
+
+    .textBox{
+        padding: 0em 1.5em 2em 1.5em    ;
+        display: flex;
+        flex-direction: column;
+        row-gap: 1.5em;
+
+        .title{
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .infoBox{
+            cursor: default;
+            display: flex;
+            align-items: flex-end;
+            column-gap: 0.3em;
+            
+            .info{
+                font-size: 18px;
+                font-weight: 500;
+
+                &::before{
+                    display: block;
+                    content: attr(data);
+                    font-size: 10px;
+                }
+            }
+        }
+
+        .maxBidBox{
+            display: flex;
+            align-items: center;
+
+            .bidText{
+                display: flex;
+                align-items: center;
+                column-gap: 0.5em;
+
+                .text{
+                    color: var(--grey);
+                }
+
+                .bid{
+                    color: var(--orange);
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+            }
+
+            
+        }
+
+        .timeBox{
+            display: flex;
+            align-items: center;
+            column-gap: 1.5em;
+            
+            .time{
+                cursor: default;
+                font-size: 25px;
+                transition: 0.3s;
+
+                &::before{
+                    display: block;
+                    content: attr(data);
+                    font-size: 10px;
+                }
+            }
+
+            .timeSeperator{
+                font-size: 25px;
+            }
+
+            .to{
+                cursor: default;
+                align-self: flex-end;
+                font-size: 17px;
+                font-style: italic;
+                color: var(--red);
+            }
+        }
+    }
+}
