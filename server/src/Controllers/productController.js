@@ -86,7 +86,7 @@ export async function UpdateMaxBid(req, res) {
 
         const product = await Product.findByIdAndUpdate(id, { maxBid: bid, maxBidOffer: user })
 
-        res.status(202).json({ message: `${user.username} you have the highest bid on ${product.title} product!` })
+        res.status(202).json({ message: `${user.username} now you have the highest bid on ${product.title}!` })
     } catch (error) {
         res.status(500).json({ message: "Something went wrong!" })
     }
