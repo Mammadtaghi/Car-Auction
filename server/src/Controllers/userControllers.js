@@ -67,7 +67,7 @@ export async function Login(req, res) {
         }, "AlbiKey", { expiresIn: '3h' })
 
         res.status(200).json({
-            message: `Hello, ${user.username}!`,
+            message: `Welcome back, ${user.username}!`,
             data: token
         })
     } catch (error) {

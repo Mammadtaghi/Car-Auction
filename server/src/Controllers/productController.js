@@ -1,5 +1,6 @@
 import { User } from "../Models/userModel.js";
 import { Product } from "./../Models/productModel.js";
+import cloudinary from "../Utils/cloudinary.js";
 
 
 // Post
@@ -10,9 +11,16 @@ export async function CreateNewProduct(req, res, next) {
 
         const user = await User.findById(req.id)
 
+        const result = await cloudinary.uploader.upload(image, {
+            folder: "products"
+        })
+
         const newProduct = await Product.create({
             title: title,
-            image: image,
+            image: {
+                public_id: result.public_id,
+                url: result.secure_url,
+            },
             info: info,
             Auctioneer: user,
             openingBid: openingBid,
@@ -60,7 +68,7 @@ export async function DeleteProductByID(req, res) {
     try {
         const { id } = req.params
         const product = await Product.findByIdAndDelete(id)
-        res.status(200).send(`${product.title} is deleted succesfully!`)
+        res.status(200).send(`${product.title} is deleted succesfully by ${req.role} ${req.username}!`)
     } catch (error) {
         res.status(500).json({ message: "Something went wrong!" })
     }

@@ -19,8 +19,6 @@ export async function CheckToken(req, res, next) {
             req.wishlist = decodedToken.wishlist
             req.vending = decodedToken.vending
 
-            console.log(decodedToken.vending);
-
             console.log("Token valid...");
             next()
         } catch (error) {

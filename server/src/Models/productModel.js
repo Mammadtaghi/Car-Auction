@@ -5,7 +5,10 @@ const { Schema } = mongoose
 
 const proSchema = new Schema({
     title: { type: String, required: true },
-    image: { type: String, required: true },
+    image: {
+        public_id: { type: String, required: true },
+        url: { type: String, required: true },
+    },
     info: {
         model: { type: String, default: 'Tesla' },
         year: { type: Number, default: 2020 },

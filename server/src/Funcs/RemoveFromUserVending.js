@@ -5,17 +5,17 @@ export async function RemoveFromUserVending(req, res, next) {
     try {
         const { id } = req.params
         
-        const foundUser = await User.findById(req.id)
+        const foundProduct = await Product.findById(id).populate(['Auctioneer'])
+        
+        console.log(foundProduct);
 
-        const foundProduct = await Product.findById(id)
+        const foundUser = await User.findById(foundProduct.Auctioneer._id)
 
         const updatedVending = [...foundUser.vending.filter(x => x._id.toString() !== id.toString())]
 
-        console.log(updatedVending);
-        
         console.log(`Updating ${foundUser.username}'s vending...`);
 
-        const user = await User.findByIdAndUpdate(req.id, { vending: updatedVending })
+        const user = await User.findByIdAndUpdate(foundProduct.Auctioneer._id, { vending: updatedVending })
 
         console.log(`${foundProduct.title} deleted successfully by ${req.role} ${req.username}!`);
 

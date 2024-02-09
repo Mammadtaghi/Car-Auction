@@ -1,5 +1,6 @@
 import { AddToUserVending } from "../Funcs/AddToUserVending.js";
 import { RemoveFromUserVending } from "../Funcs/RemoveFromUserVending.js";
+import { BlockOtherUsers } from "../Middlewares/BlockOtherUsers.js";
 import { CheckAdmin } from "../Middlewares/checkAdmin.js";
 import { CheckOffer } from "../Middlewares/checkOffer.js";
 import { CheckToken } from "../Middlewares/checkToken.js";
@@ -23,7 +24,7 @@ router.get("/:id", GetProductByID)
 
 // Delete
 
-router.delete("/:id", CheckToken, RemoveFromUserVending, DeleteProductByID)
+router.delete("/:id", CheckToken, BlockOtherUsers, RemoveFromUserVending, DeleteProductByID)
 
 
 // Put
