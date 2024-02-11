@@ -10,7 +10,6 @@
             'grid1 grid2 grid3'
             'grid4 grid5 grid6';
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
         gap: 2em;
     }
 }
@@ -26,11 +25,32 @@
                 'grid3 grid4'
                 'grid5 grid6';
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
             gap: 2em;
         }
     }
 }
+
+@media screen and (max-width:1200px) {
+    #MyProducts {
+
+        .container {
+            display: grid;
+            place-items: center center;
+            grid-template-areas:
+                'grid1'
+                'grid2'
+                'grid3'
+                'grid4'
+                'grid5'
+                'grid6';
+            grid-template-columns: 1fr;
+            gap: 2em;
+        }
+    }
+}
+
+
+
 
 
 // Loader
