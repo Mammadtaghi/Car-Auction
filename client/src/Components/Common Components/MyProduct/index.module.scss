@@ -1,38 +1,59 @@
-#MyProduct{
+#MyProduct {
     border-radius: 10%;
     background-color: #252627;
     width: 400px;
+    height: 590px;
     display: flex;
     flex-direction: column;
-    row-gap: 1em;
+    row-gap: 2em;
     overflow: hidden;
+    transition: 0.3s;
 
-    .imgBox{
+    .imgBox {
+        overflow: hidden;
+        position: relative;
         width: 100%;
+        height: 45%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            max-width: none;
+            max-height: 100%;
+        }
+
+        .productBtn{
+            width: 100%;
+            position: absolute;
+            bottom: -42px;
+        }
     }
 
-    .textBox{
-        padding: 0em 1.5em 2em 1.5em    ;
+    .textBox {
+        height: 55%;
+        padding: 0em 1.5em 2em 1.5em;
         display: flex;
         flex-direction: column;
+        justify-content: flex-start;
         row-gap: 1.5em;
 
-        .title{
+        .title {
             font-weight: 800;
             letter-spacing: 1px;
         }
 
-        .infoBox{
+        .infoBox {
             cursor: default;
             display: flex;
             align-items: flex-end;
-            column-gap: 0.3em;
-            
-            .info{
+            column-gap: 0.5em;
+
+            .info {
                 font-size: 18px;
                 font-weight: 500;
 
-                &::before{
+                &::before {
                     display: block;
                     content: attr(data);
                     font-size: 10px;
@@ -40,57 +61,89 @@
             }
         }
 
-        .maxBidBox{
+        .maxBidBox {
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
+            row-gap: 1em;
 
-            .bidText{
+            .bidText {
                 display: flex;
                 align-items: center;
                 column-gap: 0.5em;
 
-                .text{
+                .text {
                     color: var(--grey);
                 }
 
-                .bid{
+                .bid {
                     color: var(--orange);
                     font-size: 16px;
                     font-weight: 700;
                 }
             }
 
-            
+            .offerText {
+                display: flex;
+                align-items: center;
+                column-gap: 0.5em;
+
+                .text {
+                    color: var(--grey);
+                }
+
+                .offer {
+                    color: var(--orange);
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+            }
         }
 
-        .timeBox{
+        .timeBox {
             display: flex;
-            align-items: center;
-            column-gap: 1.5em;
-            
-            .time{
+            align-items: flex-end;
+            column-gap: 0.8em;
+
+            .time {
                 cursor: default;
                 font-size: 25px;
                 transition: 0.3s;
 
-                &::before{
+                &::before {
                     display: block;
                     content: attr(data);
                     font-size: 10px;
                 }
             }
 
-            .timeSeperator{
+            .timeSeperator {
                 font-size: 25px;
             }
 
-            .to{
+            .to {
                 cursor: default;
                 align-self: flex-end;
                 font-size: 17px;
                 font-style: italic;
                 color: var(--red);
             }
+
+            .ended {
+                font-size: 25px;
+
+            }
         }
+    }
+
+    &:hover{
+
+        .imgBox{
+
+            .productBtn{
+                bottom: 0;
+            }
+        }
+
     }
 }

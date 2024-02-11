@@ -1,11 +1,29 @@
 import React from 'react'
 import style from "./index.module.scss";
+import axios from 'axios';
+import { useUser } from '../../../Context/userContext';
 
 function MyProduct({ item }) {
+
+   const { user, setUser, Logout } = useUser();
+
+   async function DeleteProduct(id) {
+      try {
+         const response = await axios.delete(`http://localhost:4728/product/${id}`, {
+            headers: {
+               Authorization: `Bearer ${user.token}`
+            }
+         })
+      } catch (error) {
+         console.log(error);
+      }
+   }
+
    return (
       <div id={style.MyProduct}>
          <div className={style.imgBox}>
             <img src={item.image.url} alt="" />
+            <button onClick={()=>DeleteProduct(item._id)} className={`ProductButton ${style.productBtn}`}>Delete</button>
          </div>
 
          <div className={style.textBox}>
@@ -15,11 +33,11 @@ function MyProduct({ item }) {
                {
                   item.maxBid ?
                      <>
-                        <p className={style.bidText}><span className={style.text}>Current Bid:</span> <span>{item.bid} $</span></p>
-                        <p className={style.offerText}><span className={style.text}>By:</span> <span className={style.offer}>{item.maxBidOffer.username}</span></p>
+                        <p className={style.bidText}><span className={style.text}>Current Bid:</span> <span className={style.bid}>{item.maxBid} $</span></p>
+                        <p className={style.offerText}><span className={style.text}>By:</span> <span className={style.offer}>{item.maxBidOffer}</span></p>
                      </>
-                  :
-                  <p className={style.bidText}><span className={style.text}>Starting Bid:</span> <span className={style.bid}>{item.openingBid} $</span></p>
+                     :
+                     <p className={style.bidText}><span className={style.text}>Starting Bid:</span> <span className={style.bid}>{item.openingBid} $</span></p>
                }
             </div>
 

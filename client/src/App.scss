@@ -38,6 +38,27 @@
     }
 }
 
+
+// Product Button
+
+.ProductButton {
+    color: white;
+    background-color: var(--red);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 0.5em 2.5em;
+    border: 2px solid transparent;
+    letter-spacing: 1px;
+    transition: 0.5s;
+
+    &:hover {
+        color: black;
+        background-color: black;
+        border: 2px solid transparent;
+    }
+}
+
+
 // Navbar Button
 
 .NavButton {

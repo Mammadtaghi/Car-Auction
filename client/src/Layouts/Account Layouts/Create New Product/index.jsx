@@ -23,7 +23,7 @@ function CreateNewProduct() {
         }
 
         values.info = info
-        
+
         values.username = user.username
 
         try {
@@ -51,7 +51,7 @@ function CreateNewProduct() {
             <div id={style.CreateNewProduct}>
                 <div className={style.container}>
                     <Formik
-                        initialValues={{ title: '', image: '', model: '', year: '', body: '', color: '', condition: '', openingBid: '', minBid: '', minStep: '' }}
+                        initialValues={{ title: '', image: '', model: '', year: '', body: '', color: '', condition: '', openingBid: '', minBid: '', minStep: '', startTime: '', endTime: '' }}
                         validationSchema={Yup.object({
                             title: Yup.string()
                                 .max(20, 'Must be less than 20 characters!')
@@ -61,7 +61,7 @@ function CreateNewProduct() {
                             model: Yup.string()
                                 .required('Required'),
                             year: Yup.number()
-                                .min(2010, "You can't sell old cars!")
+                                .min(1970, "You can't sell old cars!")
                                 .max(new Date(Date.now()).getFullYear(), "I don't think you can travel in time!")
                                 .required('Required'),
                             body: Yup.string()
@@ -74,7 +74,7 @@ function CreateNewProduct() {
                                 .min(1, 'Do you want to sell or donate?!')
                                 .required('Required'),
                             minBid: Yup.number()
-                                .min(2, 'Do you really want to sell something ?!')
+                                .min(1, 'Do you really want to sell something ?!')
                                 .required('Required'),
                             minStep: Yup.number()
                                 .min(1, 'This is minimum rise for auction product!')
@@ -105,6 +105,9 @@ function CreateNewProduct() {
                             <label htmlFor="year">Year</label>
                             <Field className={style.input} name="year" type="text" />
                             <div className={style.error}><ErrorMessage name="year" /></div>
+
+
+                            // Body Type
 
                             <label htmlFor="body">Body Type</label>
                             <label className={style.radioLabel} htmlFor="body">
@@ -140,6 +143,9 @@ function CreateNewProduct() {
                                 <span className={style.text}>Crossover</span>
                             </label>
                             <div className={style.error}><ErrorMessage name="body" /></div>
+
+
+                            // Color
 
                             <label htmlFor="color">Color</label>
                             <label className={style.radioLabel} htmlFor="color">
@@ -183,10 +189,13 @@ function CreateNewProduct() {
                                 <span className={style.text}>Orange</span>
                             </label>
                             <label className={style.radioLabel} htmlFor="color">
-                                <Field className={style.input} name="color" type="radio" value="Metallic" />
-                                <span className={style.text}>Metallic</span>
+                                <Field className={style.input} name="color" type="radio" value="Pink" />
+                                <span className={style.text}>Pink</span>
                             </label>
                             <div className={style.error}><ErrorMessage name="color" /></div>
+
+
+                            // Condition
 
                             <label htmlFor="condition">Condition</label>
                             <label className={style.radioLabel} htmlFor="condition">
@@ -200,7 +209,10 @@ function CreateNewProduct() {
                             <label className={style.radioLabel} htmlFor="condition">
                                 <Field className={style.input} name="condition" type="radio" value="Not Bad" />
                                 <span className={style.text}>Not Bad</span>
-                            </label>                            <div className={style.error}><ErrorMessage name="condition" /></div>
+                            </label>
+                            <div className={style.error}><ErrorMessage name="condition" /></div>
+
+
 
                             <label htmlFor="openingBid">Opening Bid</label>
                             <Field className={style.input} name="openingBid" type="text" />

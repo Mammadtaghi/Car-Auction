@@ -12,6 +12,8 @@ function MyProducts() {
 
     const { user, setUser, Logout } = useUser();
 
+    const [isLoading, setIsLoading] = React.useState(true)
+
     const [data, setData] = React.useState([]);
 
     async function GetVending(id) {
@@ -24,6 +26,7 @@ function MyProducts() {
                 remainingTimeToStart: formatTime((Date.now() - new Date(item.startTime).getTime())),
             }));
             setData(vendingData);
+            setIsLoading(false)
         } catch (error) {
             console.log(error);
         }
@@ -67,8 +70,8 @@ function MyProducts() {
             </Helmet>
             <div id={style.MyProducts}>
                 <div className={style.container}>
-                    {data && data.map(item => (
-                        <div key={item._id} className={style}><MyProduct item={item} /></div>
+                    { isLoading ? <span className={`${style.loader}`}></span> : data && data.map((item,i) => (
+                        <div key={item._id} style={{gridArea:`grid${i+1}`, transition: 'all 0.3s'}} className={style}><MyProduct item={item} /></div>
                     ))}
                 </div>
             </div>
