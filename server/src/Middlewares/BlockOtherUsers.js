@@ -4,7 +4,7 @@ export async function BlockOtherUsers(req, res, next) {
     try {
         const { id } = req.params
 
-        const foundProduct = await Product.findById(id)
+        const foundProduct = await Product.findById(id).populate('Auctioneer')
 
         if (!foundProduct) {
             res.status(406).json({ message: "This product doesn't exist!" })

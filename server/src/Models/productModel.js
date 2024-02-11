@@ -24,10 +24,7 @@ const proSchema = new Schema({
     minBid: { type: Number, required: true },
     minStep: { type: Number, required: true },
     maxBid: { type: Number, default: 0 },
-    maxBidOffer: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "AuctionUsers"
-    },
+    maxBidOffer: { type: String, default: '' },
     startTime: { type: Date, required: true },
     endTime: { type: Date, required: true },
     isInAuc: { type: Boolean, default: false },

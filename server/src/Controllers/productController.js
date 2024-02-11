@@ -14,7 +14,7 @@ export async function CreateNewProduct(req, res, next) {
         const result = await cloudinary.uploader.upload(image, {
             folder: "products"
         })
-
+        console.log('Creating product...');
         const newProduct = await Product.create({
             title: title,
             image: {
@@ -29,7 +29,8 @@ export async function CreateNewProduct(req, res, next) {
             startTime: startTime,
             endTime: endTime,
         })
-        req.newProduct = newProduct
+        console.log('Preapering for next step...');
+        req.newProduct = await newProduct.populate(['maxBidOffer','Auctioneer'])
         console.log(newProduct.startTime);
         console.log(newProduct.endTime);
         console.log(`${newProduct.title} is created succesfully!`);
@@ -84,7 +85,7 @@ export async function UpdateMaxBid(req, res) {
 
         const user = await User.findById(req.id)
 
-        const product = await Product.findByIdAndUpdate(id, { maxBid: bid, maxBidOffer: user })
+        const product = await Product.findByIdAndUpdate(id, { maxBid: bid, maxBidOffer: user.username })
 
         res.status(202).json({ message: `${user.username} now you have the highest bid on ${product.title}!` })
     } catch (error) {
