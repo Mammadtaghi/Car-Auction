@@ -1,6 +1,7 @@
 import React from 'react'
 import style from './index.module.scss'
 import { Helmet } from "react-helmet-async";
+import ShopFilter from '../../Components/Shop Components/Shop Filter';
 
 function ShopPage() {
     return (
@@ -65,6 +66,8 @@ function ShopPage() {
                             </div>
 
                         </div>
+
+                        <ShopFilter title={"Body Type"} />
                     </div>
                     <div className={style.shopBox}>
 
