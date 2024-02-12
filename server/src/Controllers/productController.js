@@ -30,7 +30,7 @@ export async function CreateNewProduct(req, res, next) {
             endTime: endTime,
         })
         console.log('Preapering for next step...');
-        req.newProduct = await newProduct.populate(['maxBidOffer','Auctioneer'])
+        req.newProduct = await newProduct.populate(['maxBidOffer', 'Auctioneer'])
         console.log(newProduct.startTime);
         console.log(newProduct.endTime);
         console.log(`${newProduct.title} is created succesfully!`);
@@ -45,7 +45,12 @@ export async function CreateNewProduct(req, res, next) {
 
 export async function GetProducts(req, res) {
     try {
-        const products = await Product.find()
+        const products = await Product.find().populate({
+            path: 'Auctioneer',
+            populate: {
+                path:'vending'
+            }
+        })
         res.status(200).send(products)
     } catch (error) {
         res.status(500).json({ message: "Something went wrong!" })
@@ -85,7 +90,7 @@ export async function UpdateMaxBid(req, res) {
 
         const user = await User.findById(req.id)
 
-        const product = await Product.findByIdAndUpdate(id, { maxBid: bid, maxBidOffer: user.username })
+        const product = await Product.findByIdAndUpdate(id, { maxBid: bid, maxBidOffer: user })
 
         res.status(202).json({ message: `${user.username} now you have the highest bid on ${product.title}!` })
     } catch (error) {
