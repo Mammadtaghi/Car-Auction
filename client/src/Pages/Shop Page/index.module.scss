@@ -1,0 +1,88 @@
+#ShopPage {
+    display: flex;
+    flex-direction: column;
+
+    .pageTitle {
+        width: 100%;
+        padding: 2.7em;
+        background-color: #d2d2d2;
+
+        .path {
+            color: var(--grey);
+        }
+
+        .filterText {
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+    }
+
+    .container {
+        padding: 5em 2em;
+        display: flex;
+
+        .filterBox{
+            padding: 19px 25px;
+            max-width: 330px;
+            width: 330px;
+            border-radius: 20px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 1.8em;
+
+            .filterBoxTitle{
+                cursor: default;
+                font-size: 28px;
+                letter-spacing: 1px;
+                font-weight: 800;
+            }
+
+            .filter{
+                display: flex;
+                flex-direction: column;
+                row-gap: 1em;
+                
+                .filterTitle{
+                    cursor: default;
+                    letter-spacing: 1px;
+                }
+
+                .filters{
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 0.7em;
+
+                    .modelFilter{
+                        cursor: pointer;
+                        padding: 0.5em 0;
+                        display: flex;
+                        justify-content: space-between;
+                        border-bottom: 1px dashed var(--grey);
+
+                        .text{
+                            color: var(--white);
+                            transition: 0.4s;
+                        }
+
+                        .count{
+                            color: var(--grey);
+                            transition: 0.4s;
+                        }
+
+                        &:hover{
+                            
+                            .text{
+                                color: var(--red);
+                            }
+
+                            .count{
+                                color: var(--red);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
