@@ -59,6 +59,34 @@
 }
 
 
+// Paginaton Button
+
+.PaginationButton {
+    width: 3em;
+    aspect-ratio: 1/1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    background-color: var(--white);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 1em;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 0.5s;
+
+    &:hover {
+        color: var(--white);
+        background-color: var(--red);
+        border: 2px solid transparent;
+    }
+}
+
+
+
 // Navbar Button
 
 .NavButton {

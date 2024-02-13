@@ -1,7 +1,6 @@
-import React from 'react'
-import style from "./index.module.scss";
+import React from 'react';
 import { useFilter } from '../../../Context/shopFiltersContext';
-import { useEffect } from 'react';
+import style from "./index.module.scss";
 
 function ShopFilter({ title, filterData }) {
 
