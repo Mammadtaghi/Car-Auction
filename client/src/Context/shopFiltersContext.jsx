@@ -4,10 +4,9 @@ const shopFilterContext = createContext()
 
 export const ShopFilterProvider = ({ children }) => {
 
-    const [Filters, setFilters] = useState([])
+    const [Filters, setFilters] = useState('')
 
     function UpdateFilter(filter) {
-        console.log(Filters);
         const index = Filters.findIndex(x => x === filter)
         if (index === -1) {
             setFilters([...Filters, filter])

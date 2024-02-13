@@ -5,8 +5,11 @@ import ShopFilter from '../../Components/Shop Components/Shop Filter';
 import { useProduct } from '../../Context/productContext';
 import ShopProduct from '../../Components/Shop Components/Shop Product';
 import usePagination from '../../Hooks/usePagination';
+import { useFilter } from '../../Context/shopFiltersContext';
 
 function ShopPage() {
+
+    const { Filters, setFilters, UpdateFilter } = useFilter()
 
     const [bodyTypes, setBodyTypes] = React.useState([])
 
@@ -14,7 +17,9 @@ function ShopPage() {
 
     const { Products, setProducts, isLoading } = useProduct()
 
-    const [PageDatas, currentPage, setCurrentPage, setDataPerPage, pageNumbers, lastPageIndex] = usePagination(Products, 6)
+    const FilteredData = useMemo(() => Products.filter(x => x.title.includes(Filters)), [Filters, Products])
+
+    const [PageDatas, currentPage, setCurrentPage, setDataPerPage, pageNumbers, lastPageIndex] = usePagination(FilteredData, 6)
 
     function GetInfo(data, key) {
 
@@ -63,7 +68,7 @@ function ShopPage() {
             <div id={style.ShopPage}>
                 <div className={style.pageTitle}>
                     <span className={style.path}>Shop /</span>
-                    <h1 className={style.filterText}>Shop: All</h1>
+                    <h1 className={style.filterText}>Shop: {Filters ? Filters : 'All'}</h1>
                 </div>
                 <div className={style.container}>
                     <div className={style.filterBox}>
@@ -75,7 +80,7 @@ function ShopPage() {
                             <div className={`${style.filters}`}>
                                 {!models ? <span className={style.loader}></span> :
                                     models.map((model, i) => (
-                                        <div key={i} className={style.modelFilter}>
+                                        <div key={i} onClick={() => setFilters(Filters !== model.model ? model.model : '')} className={style.modelFilter}>
                                             <span className={style.text}>{model.model}</span>
                                             <span className={style.count}>({model.count})</span>
                                         </div>
@@ -91,24 +96,25 @@ function ShopPage() {
                     </div>
                     <div className={style.shopBox}>
                         <div className={style.sortBox}>
-                            
+
                         </div>
 
                         <div className={style.products}>
                             {isLoading ? <span className={style.loader}></span> :
-                                PageDatas.map((item, i) => (
-                                    <div key={item._id} style={{ gridArea: `grid${i + 1}` }} ><ShopProduct item={item} /></div>
-                                ))
+                                PageDatas
+                                    .map((item, i) => (
+                                        <div key={item._id} className={style.proCon} style={{ gridArea: `grid${i + 1}` }} ><ShopProduct item={item} /></div>
+                                    ))
                             }
                         </div>
 
-                        <div className={style.paginationButtons}>
+                        {pageNumbers.length > 1 ? <div className={style.paginationButtons}>
                             <button className={`PaginationButton`} onClick={() => setCurrentPage(currentPage > 1 ? (currentPage - 1) : currentPage)}><i className="fa-solid fa-arrow-left-long"></i></button>
                             {pageNumbers ? pageNumbers.map(x => (
                                 <button key={x} className={`PaginationButton`} onClick={() => setCurrentPage(x)}>{x}</button>
                             )) : null}
                             <button className={`PaginationButton`} onClick={() => setCurrentPage(currentPage < lastPageIndex ? (currentPage + 1) : currentPage)}><i className="fa-solid fa-arrow-right-long"></i></button>
-                        </div>
+                        </div> : null}
                     </div>
                 </div>
             </div>
