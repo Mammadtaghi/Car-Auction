@@ -45,12 +45,15 @@ export async function CreateNewProduct(req, res, next) {
 
 export async function GetProducts(req, res) {
     try {
-        const products = await Product.find().populate({
+        const products = await Product.find().populate([{
             path: 'Auctioneer',
             populate: {
                 path:'vending'
             }
-        })
+        },
+    {
+        path: 'maxBidOffer',
+    }])
         res.status(200).send(products)
     } catch (error) {
         res.status(500).json({ message: "Something went wrong!" })
