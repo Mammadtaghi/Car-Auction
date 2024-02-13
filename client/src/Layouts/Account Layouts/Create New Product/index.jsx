@@ -15,7 +15,7 @@ function CreateNewProduct() {
 
     const { Products, setProducts, isLoading, GetProducts } = useProduct()
 
-    async function CreateNewProduct(values) {
+    async function CreateNewProduct(values, resetForm) {
 
         const info = {
             model: values.model,
@@ -41,6 +41,7 @@ function CreateNewProduct() {
             console.log(response.data);
             setMessage(response.data.message)
             GetProducts()
+            resetForm()
         } catch (error) {
             console.log(error);
             setMessage(error.response.data.message)
@@ -89,8 +90,8 @@ function CreateNewProduct() {
                                 .required('Required'),
                         })}
                         onSubmit={(values, { resetForm }) => {
-                            CreateNewProduct(values)
-                            resetForm()
+                            CreateNewProduct(values, resetForm)
+                            // resetForm()
                         }}
                     >
                         <Form className={`${style.formik}`}>
