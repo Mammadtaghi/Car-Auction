@@ -13,6 +13,7 @@ import AccountPage from './Pages/Account Page'
 import ErrorPage from './Pages/Error Page'
 import Login from './Pages/Login Page'
 import Register from './Pages/Register Page'
+import { ShopFilterProvider } from './Context/shopFiltersContext'
 
 function App() {
 

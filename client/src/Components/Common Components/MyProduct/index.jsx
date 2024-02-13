@@ -34,7 +34,7 @@ function MyProduct({ item }) {
                   item.maxBid ?
                      <>
                         <p className={style.bidText}><span className={style.text}>Current Bid:</span> <span className={style.bid}>{item.maxBid} $</span></p>
-                        <p className={style.offerText}><span className={style.text}>By:</span> <span className={style.offer}>{item.maxBidOffer.username}</span></p>
+                        <p className={style.offerText}><span className={style.text}>Max Bid Offer:</span> <span className={style.offer}>{item.maxBidOffer.username}</span></p>
                      </>
                      :
                      <p className={style.bidText}><span className={style.text}>Starting Bid:</span> <span className={style.bid}>{item.openingBid} $</span></p>
@@ -68,7 +68,7 @@ function MyProduct({ item }) {
                         <span className={style.to}>To End</span>
                      </>
                      :
-                     <span className={`${style.ended}`}>Auction Ended</span>
+                     <span className={`${style.ended}`}>Auction Closed</span>
             }</div>
          </div>
       </div>

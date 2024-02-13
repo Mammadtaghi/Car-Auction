@@ -39,8 +39,14 @@
         row-gap: 1.5em;
 
         .title {
+            cursor: pointer;
             font-weight: 800;
             letter-spacing: 1px;
+            transition: 0.4s;
+
+            &:hover{
+                color: var(--red);
+            }
         }
 
         .infoBox {
@@ -78,7 +84,7 @@
 
                 .bid {
                     color: var(--orange);
-                    font-size: 16px;
+                    font-size: 17px;
                     font-weight: 700;
                 }
             }
@@ -93,9 +99,9 @@
                 }
 
                 .offer {
-                    color: var(--orange);
+                    color: var(--green);
                     font-size: 16px;
-                    font-weight: 700;
+                    font-weight: 600;
                 }
             }
         }
@@ -131,7 +137,7 @@
 
             .ended {
                 font-size: 25px;
-
+                color: var(--red);
             }
         }
     }

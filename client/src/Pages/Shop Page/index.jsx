@@ -1,9 +1,34 @@
-import React from 'react'
+import React, { useEffect, useMemo } from 'react'
 import style from './index.module.scss'
 import { Helmet } from "react-helmet-async";
 import ShopFilter from '../../Components/Shop Components/Shop Filter';
+import { useProduct } from '../../Context/productContext';
+import ShopProduct from '../../Components/Shop Components/Shop Product';
 
 function ShopPage() {
+
+    const [bodyTypes, setBodyTypes] = React.useState([])
+
+    const { Products, setProducts, isLoading } = useProduct()
+
+    function getBodyTypes(data, key) {
+
+        let result = []
+
+        data.forEach(x => {
+            !result.includes(x.info[key]) ? result.push(x.info[key]) : null
+        })
+
+        return result
+    }
+
+    useEffect(() => {
+        setBodyTypes(getBodyTypes(Products, 'body'))
+    }, [Products])
+
+
+
+
     return (
         <>
             <Helmet>
@@ -21,7 +46,7 @@ function ShopPage() {
 
                         <div className={style.filter}>
                             <h3 className={style.filterTitle}>Car Models</h3>
-                            
+
                             <div className={`${style.filters}`}>
                                 <div className={style.modelFilter}>
                                     <span className={style.text}>Audi</span>
@@ -67,10 +92,16 @@ function ShopPage() {
 
                         </div>
 
-                        <ShopFilter title={"Body Type"} />
+                        <ShopFilter title={"Body Type"} filterData={bodyTypes} />
+
+                        {/* // Add your filters here */}
                     </div>
                     <div className={style.shopBox}>
-
+                        {isLoading ? <span className={style.loader}></span> :
+                            Products.map(item => (
+                                <ShopProduct key={item._id} item={item} />
+                            ))
+                        }
                     </div>
                 </div>
             </div>

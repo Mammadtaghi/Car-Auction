@@ -1,11 +1,15 @@
 import React from 'react'
 import style from "./index.module.scss";
+import { useFilter } from '../../../Context/shopFiltersContext';
+import { useEffect } from 'react';
 
 function ShopFilter({ title, filterData }) {
 
+    const { Filters, setFilters, UpdateFilter } = useFilter()
+
     const [isOpen, setIsOpen] = React.useState(false)
 
-    const [filter, setFilter] = React.useState(null)
+    const [filter, setFilter] = React.useState('')
 
     return (
         <div id={style.Filter}>
@@ -17,13 +21,11 @@ function ShopFilter({ title, filterData }) {
 
             <div className={`${style.filters}`} style={isOpen ? { maxHeight: '800px' } : { maxHeight: '0px' }}>
 
-                <div onClick={() => setFilter(filter === 'Audi' ? '' : 'Audi')} className={`${style.filter} ${filter === 'Audi' ? style.selected : ''}`}>
-                    <span className={style.text}>Audi</span>
-                </div>
-
-                <div onClick={() => setFilter(filter === 'BMW' ? '' : 'BMW')} className={`${style.filter} ${filter === 'BMW' ? style.selected : ''}`}>
-                    <span className={style.text}>BMW</span>
-                </div>
+                {filterData ? filterData.map((x, i) => (
+                    <div key={i} onClick={() => setFilter(filter === x ? '' : x)} className={`${style.filter} ${filter === x ? style.selected : ''}`}>
+                        <span className={style.text}>{x}</span>
+                    </div>
+                )) : null}
 
             </div>
 

@@ -5,12 +5,15 @@ import { useUser } from '../../../Context/userContext';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
+import { useProduct } from '../../../Context/productContext';
 
 function CreateNewProduct() {
 
     const [message, setMessage] = React.useState('')
 
     const { user, setUser, Logout } = useUser()
+
+    const { Products, setProducts, isLoading, GetProducts } = useProduct()
 
     async function CreateNewProduct(values) {
 
@@ -37,6 +40,7 @@ function CreateNewProduct() {
             })
             console.log(response.data);
             setMessage(response.data.message)
+            GetProducts()
         } catch (error) {
             console.log(error);
             setMessage(error.response.data.message)
@@ -107,7 +111,7 @@ function CreateNewProduct() {
                             <div className={style.error}><ErrorMessage name="year" /></div>
 
 
-                            // Body Type
+                            {/* // Body Type */}
 
                             <label htmlFor="body">Body Type</label>
                             <label className={style.radioLabel} htmlFor="body">
@@ -145,7 +149,7 @@ function CreateNewProduct() {
                             <div className={style.error}><ErrorMessage name="body" /></div>
 
 
-                            // Color
+                            {/* // Color */}
 
                             <label htmlFor="color">Color</label>
                             <label className={style.radioLabel} htmlFor="color">
@@ -195,7 +199,7 @@ function CreateNewProduct() {
                             <div className={style.error}><ErrorMessage name="color" /></div>
 
 
-                            // Condition
+                            {/* // Condition */}
 
                             <label htmlFor="condition">Condition</label>
                             <label className={style.radioLabel} htmlFor="condition">
