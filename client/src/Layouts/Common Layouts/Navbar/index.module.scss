@@ -48,6 +48,7 @@
                         transition: 0.3s;
 
                         .text {
+                            cursor: pointer;
                             color: inherit;
                         }
 
@@ -140,6 +141,7 @@
                                 }
 
                                 .listText {
+                                    cursor: pointer;
                                     inline-size: max-content;
                                     font-size: 15px;
                                     font-weight: 500px;

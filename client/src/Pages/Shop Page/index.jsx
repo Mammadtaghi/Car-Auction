@@ -81,7 +81,7 @@ function ShopPage() {
                                     <span onClick={() => setGridStyle(1)} className={`${style.gridStyle} ${style.gridStyleBlock} ${gridStyle === 1 ? style.gridActive : null}`}></span>
                                     <span onClick={() => setGridStyle(2)} className={`${style.gridStyle} ${style.gridStyleLine} ${gridStyle === 2 ? style.gridActive : null}`}></span>
                                 </div>
-                                <span className={style.productCount}>Showing {firstElementIndex} - {lastElementIndex} of {FilteredData ? FilteredData.length : 0} results</span>
+                                <span className={style.productCount}>Showing {firstElementIndex + 1} - {lastElementIndex} of {FilteredData ? FilteredData.length : 0} results</span>
                             </div>
                             <div className={style.lSide}>
                                 <select name="sort" id={style.sort}>

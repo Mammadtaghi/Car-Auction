@@ -1,0 +1,27 @@
+#ErrorPage{
+    padding: 8em;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    row-gap: 0.5em;
+
+    .error{
+        font-size: 15em;
+        line-height: 1em;
+    }
+
+    .message{
+        font-size: 2em;
+    }
+
+    .info{
+        margin-top: 0.5em;
+        max-width: 420px;
+    }
+
+    .toHome{
+        margin-top: 2em;
+    }
+}
