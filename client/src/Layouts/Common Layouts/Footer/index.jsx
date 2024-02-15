@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import style from './index.module.scss';
 import { NavLink } from 'react-router-dom';
 import { useUser } from '../../../Context/userContext';
+import { useFilter } from '../../../Context/shopFiltersContext';
+import { useProduct } from '../../../Context/productContext';
 
 function Footer() {
 
     const { user, setUser, Logout } = useUser()
 
+    const { Filters, setFilters, UpdateFilter, bodyTypes, setBodyTypes, models, setModels, GetModels, GetInfo } = useFilter()
+
+    const { Products, setProducts, isLoading } = useProduct()
+
     return (
         <>
-            <div id={style.Footer}>
+            <footer id={style.Footer}>
                 <div className={style.container}>
                     <div className={style.topPart}>
                         <div style={{ gridArea: 'grid1' }} className={`${style.footerListCon}`}>
@@ -26,15 +32,16 @@ function Footer() {
                         </div>
 
                         <div style={{ gridArea: 'grid2' }} className={`${style.footerListCon}`}>
+
                             <h2 className={style.listTitle}>Latest Cars</h2>
                             <ul className={style.list}>
-                                <li><span className={`${style.arrow}`}>BMW M6</span></li>
-                                <li><span className={`${style.arrow}`}>Mercedes-Benz GLC</span></li>
-                                <li><span className={`${style.arrow}`}>Audi A5</span></li>
-                                <li><span className={`${style.arrow}`}>Mazda R8</span></li>
-                                <li><span className={`${style.arrow}`}>Audi R8</span></li>
-                                <li><span className={`${style.arrow}`}>Mercedes-Benz GLE</span></li>
+                                {models.length ? models.slice(-6).map((model, i) => (
+                                    <li key={i}><span className={`${style.arrow}`} onClick={() => setFilters(Filters !== model.model ? model.model : '')}>
+                                        {model.model}
+                                    </span></li>
+                                )) : null}
                             </ul>
+
                         </div>
 
                         <div style={{ gridArea: 'grid3' }} className={`${style.footerListCon}`}>
@@ -92,7 +99,7 @@ function Footer() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </footer>
         </>
     )
 }

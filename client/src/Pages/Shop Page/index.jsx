@@ -9,11 +9,7 @@ import { useFilter } from '../../Context/shopFiltersContext';
 
 function ShopPage() {
 
-    const { Filters, setFilters, UpdateFilter } = useFilter()
-
-    const [bodyTypes, setBodyTypes] = React.useState([])
-
-    const [models, setModels] = React.useState([])
+    const { Filters, setFilters, UpdateFilter, bodyTypes, setBodyTypes, models, setModels, GetModels, GetInfo } = useFilter()
 
     const { Products, setProducts, isLoading } = useProduct()
 
@@ -21,44 +17,9 @@ function ShopPage() {
 
     const [PageDatas, currentPage, setCurrentPage, setDataPerPage, pageNumbers, lastPageIndex] = usePagination(FilteredData, 6)
 
-    function GetInfo(data, key) {
-
-        let result = []
-
-        data.forEach(x => {
-            !result.includes(x.info[key]) ? result.push(x.info[key]) : null
-        })
-
-        return result
-    }
 
 
-
-    function GetModels(data, key) {
-
-        let result = []
-
-        data.forEach(x => {
-            // result.push({ model: x[key].split(' ')[0], count: 1 })
-            const index = result.findIndex(k => k.model === x[key].split(' ')[0])
-            if (index === -1) {
-                result.push({ model: x[key].split(' ')[0], count: 1 })
-                return
-            }
-            result[index].count++
-        })
-
-        return result
-    }
-
-    useEffect(() => {
-        setBodyTypes(GetInfo(Products, 'body'))
-        setModels(GetModels(Products, 'title'))
-    }, [Products])
-
-
-
-
+    
     return (
         <>
             <Helmet>
