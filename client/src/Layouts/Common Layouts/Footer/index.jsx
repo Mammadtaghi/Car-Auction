@@ -1,17 +1,24 @@
 import React, { useEffect } from 'react';
 import style from './index.module.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useUser } from '../../../Context/userContext';
 import { useFilter } from '../../../Context/shopFiltersContext';
 import { useProduct } from '../../../Context/productContext';
 
 function Footer() {
 
+    const navigate = useNavigate()
+
     const { user, setUser, Logout } = useUser()
 
     const { Filters, setFilters, UpdateFilter, bodyTypes, setBodyTypes, models, setModels, GetModels, GetInfo } = useFilter()
 
     const { Products, setProducts, isLoading } = useProduct()
+
+    function GoShop(model) {
+        setFilters(Filters !== model ? model : '')
+        navigate("/shop")
+    }
 
     return (
         <>
@@ -36,7 +43,7 @@ function Footer() {
                             <h2 className={style.listTitle}>Latest Cars</h2>
                             <ul className={style.list}>
                                 {models.length ? models.slice(-6).map((model, i) => (
-                                    <li key={i}><span className={`${style.arrow}`} onClick={() => setFilters(Filters !== model.model ? model.model : '')}>
+                                    <li key={i}><span className={`${style.arrow}`} onClick={() => GoShop(model.model) }>
                                         {model.model}
                                     </span></li>
                                 )) : null}
@@ -63,7 +70,7 @@ function Footer() {
                                 <li><NavLink to={"/"} className={`${style.arrow}`}>Dashboard</NavLink></li>
                                 <li><NavLink to={"/"} className={`${style.arrow}`}>Contact</NavLink></li>
                                 <li>
-                                    <div className={`${style.iconsBox}`}>
+                                    <div direction="right" behavior="scrolling" onMouseOver={(e) => e.target.start()} loop="infinite" className={`${style.iconsBox}`}>
                                         <div className={`${style.footerIcon}`}>
                                             <i className={`fa-brands fa-facebook ${style.icon}`}></i>
                                         </div>
