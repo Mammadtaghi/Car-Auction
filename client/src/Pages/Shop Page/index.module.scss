@@ -55,18 +55,20 @@
                     row-gap: 0.7em;
 
                     .modelFilter {
-                        cursor: pointer;
+                        cursor: pointer !important;
                         padding: 0.5em 0;
                         display: flex;
                         justify-content: space-between;
                         border-bottom: 1px dashed var(--grey);
 
                         .text {
+                            cursor: pointer;
                             color: var(--white);
                             transition: 0.4s;
                         }
 
                         .count {
+                            cursor: pointer;
                             color: var(--grey);
                             transition: 0.4s;
                         }
@@ -92,6 +94,89 @@
             flex-direction: column;
             align-items: center;
             row-gap: 5em;
+
+            .sortBox {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .rSide {
+                    display: flex;
+                    align-items: center;
+                    column-gap: 1.5em;
+
+                    .gridStyleBox {
+                        display: flex;
+                        align-items: center;
+
+                        .gridStyle {
+                            cursor: pointer;
+                            display: inline-flex;
+                            height: 35px;
+                            width: 40px;
+                            background-color: var(--white);
+                            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                            transition: 0.4s;
+
+                            &::before{
+                                width: 100%;
+                                color: var(--red);
+                                font-size: 14px;
+                                line-height: 35px;
+                                text-align: center;
+                                transition: 0.4s;
+                            }
+
+                            &:hover{
+                                background-color: var(--red);
+
+                                &::before{
+                                    color: var(--white);
+                                }
+                            }
+                        }
+
+                        .gridStyle.gridActive {
+                            background-color: var(--red) !important;
+
+                            &::before{
+                                color: var(--white);
+                            }
+                        }
+
+                        .gridStyleBlock {
+                            border-radius: 6px 0px 0px 6px;
+
+                            &::before{
+                                content: "\2610";
+                            }
+                        }
+
+                        .gridStyleLine {
+                            border-radius: 0px 6px 6px 0px;
+                            
+                            &::before{
+                                content: "\2630";
+                            }
+                        }
+                    }
+                }
+
+                .lSide{
+                    display: flex;
+                    align-items: center;
+
+                    #sort{
+                        padding: 0.5em 1.5em;
+                        font-size: 15px;
+                        background-color: transparent;
+                        border: 1px solid var(--grey);
+                        border-radius: 4px;
+                        
+                    }
+                }
+            }
 
             .products {
                 display: grid;
@@ -209,6 +294,89 @@
                 flex-direction: column;
                 align-items: center;
                 row-gap: 5em;
+
+                .sortBox {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .rSide {
+                        display: flex;
+                        align-items: center;
+                        column-gap: 1.5em;
+
+                        .gridStyleBox {
+                            display: flex;
+                            align-items: center;
+
+                            .gridStyle {
+                                cursor: pointer;
+                                display: inline-flex;
+                                height: 35px;
+                                width: 40px;
+                                background-color: var(--white);
+                                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                                transition: 0.4s;
+
+                                &::before{
+                                    width: 100%;
+                                    color: var(--red);
+                                    font-size: 14px;
+                                    line-height: 35px;
+                                    text-align: center;
+                                    transition: 0.4s;
+                                }
+
+                                &:hover{
+                                    background-color: var(--red);
+
+                                    &::before{
+                                        color: var(--white);
+                                    }
+                                }
+                            }
+
+                            .gridStyle.gridActive {
+                                background-color: var(--red) !important;
+
+                                &::before{
+                                    color: var(--white);
+                                }
+                            }
+
+                            .gridStyleBlock {
+                                border-radius: 6px 0px 0px 6px;
+
+                                &::before{
+                                    content: "\2610";
+                                }
+                            }
+
+                            .gridStyleLine {
+                                border-radius: 0px 6px 6px 0px;
+                                
+                                &::before{
+                                    content: "\2630";
+                                }
+                            }
+                        }
+                    }
+
+                    .lSide{
+                        display: flex;
+                        align-items: center;
+
+                        #sort{
+                            padding: 0.5em 1.5em;
+                            font-size: 15px;
+                            background-color: transparent;
+                            border: 1px solid var(--grey);
+                            border-radius: 4px;
+                            
+                        }
+                    }
+                }
 
                 .products {
                     display: grid;
@@ -330,6 +498,89 @@
                 align-items: center;
                 row-gap: 5em;
 
+                .sortBox {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .rSide {
+                        display: flex;
+                        align-items: center;
+                        column-gap: 0.5em;
+
+                        .gridStyleBox {
+                            display: flex;
+                            align-items: center;
+
+                            .gridStyle {
+                                cursor: pointer;
+                                display: inline-flex;
+                                height: 35px;
+                                width: 40px;
+                                background-color: var(--white);
+                                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                                transition: 0.4s;
+
+                                &::before{
+                                    width: 100%;
+                                    color: var(--red);
+                                    font-size: 14px;
+                                    line-height: 35px;
+                                    text-align: center;
+                                    transition: 0.4s;
+                                }
+
+                                &:hover{
+                                    background-color: var(--red);
+
+                                    &::before{
+                                        color: var(--white);
+                                    }
+                                }
+                            }
+
+                            .gridStyle.gridActive {
+                                background-color: var(--red) !important;
+
+                                &::before{
+                                    color: var(--white);
+                                }
+                            }
+
+                            .gridStyleBlock {
+                                border-radius: 6px 0px 0px 6px;
+
+                                &::before{
+                                    content: "\2610";
+                                }
+                            }
+
+                            .gridStyleLine {
+                                border-radius: 0px 6px 6px 0px;
+                                
+                                &::before{
+                                    content: "\2630";
+                                }
+                            }
+                        }
+                    }
+
+                    .lSide{
+                        display: flex;
+                        align-items: center;
+
+                        #sort{
+                            padding: 0.5em 1.5em;
+                            font-size: 15px;
+                            background-color: transparent;
+                            border: 1px solid var(--grey);
+                            border-radius: 4px;
+                            
+                        }
+                    }
+                }
+
                 .products {
                     display: grid;
                     grid-template-areas:
@@ -382,6 +633,7 @@
             flex-direction: column;
             align-items: center;
             column-gap: 2em;
+            row-gap: 3em;
 
             .filterBox {
                 padding: 2em 2.3em;
@@ -453,6 +705,93 @@
                 flex-direction: column;
                 align-items: center;
                 row-gap: 5em;
+
+                .sortBox {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .rSide {
+                        display: flex;
+                        align-items: center;
+                        column-gap: 0.5em;
+
+                        .gridStyleBox {
+                            display: flex;
+                            align-items: center;
+
+                            .gridStyle {
+                                cursor: pointer;
+                                display: inline-flex;
+                                height: 35px;
+                                width: 40px;
+                                background-color: var(--white);
+                                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                                transition: 0.4s;
+
+                                &::before{
+                                    width: 100%;
+                                    color: var(--red);
+                                    font-size: 14px;
+                                    line-height: 35px;
+                                    text-align: center;
+                                    transition: 0.4s;
+                                }
+
+                                &:hover{
+                                    background-color: var(--red);
+
+                                    &::before{
+                                        color: var(--white);
+                                    }
+                                }
+                            }
+
+                            .gridStyle.gridActive {
+                                background-color: var(--red) !important;
+
+                                &::before{
+                                    color: var(--white);
+                                }
+                            }
+
+                            .gridStyleBlock {
+                                border-radius: 6px 0px 0px 6px;
+
+                                &::before{
+                                    content: "\2610";
+                                }
+                            }
+
+                            .gridStyleLine {
+                                border-radius: 0px 6px 6px 0px;
+                                
+                                &::before{
+                                    content: "\2630";
+                                }
+                            }
+                        }
+
+                        .productCount{
+                            display: none;
+                        }
+                    }
+
+                    .lSide{
+                        display: flex;
+                        align-items: center;
+
+                        #sort{
+                            padding: 0.5em 1.5em;
+                            font-size: 15px;
+                            background-color: transparent;
+                            border: 1px solid var(--grey);
+                            border-radius: 4px;
+                            
+                        }
+                    }
+                }
 
                 .products {
                     display: grid;
@@ -506,6 +845,7 @@
             flex-direction: column;
             align-items: center;
             column-gap: 2em;
+            row-gap: 3em;
 
             .filterBox {
                 padding: 2em 2.3em;
@@ -578,6 +918,93 @@
                 align-items: center;
                 row-gap: 5em;
 
+                .sortBox {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .rSide {
+                        display: flex;
+                        align-items: center;
+                        column-gap: 0.5em;
+
+                        .gridStyleBox {
+                            display: flex;
+                            align-items: center;
+
+                            .gridStyle {
+                                cursor: pointer;
+                                display: inline-flex;
+                                height: 35px;
+                                width: 40px;
+                                background-color: var(--white);
+                                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                                transition: 0.4s;
+
+                                &::before{
+                                    width: 100%;
+                                    color: var(--red);
+                                    font-size: 14px;
+                                    line-height: 35px;
+                                    text-align: center;
+                                    transition: 0.4s;
+                                }
+
+                                &:hover{
+                                    background-color: var(--red);
+
+                                    &::before{
+                                        color: var(--white);
+                                    }
+                                }
+                            }
+
+                            .gridStyle.gridActive {
+                                background-color: var(--red) !important;
+
+                                &::before{
+                                    color: var(--white);
+                                }
+                            }
+
+                            .gridStyleBlock {
+                                border-radius: 6px 0px 0px 6px;
+
+                                &::before{
+                                    content: "\2610";
+                                }
+                            }
+
+                            .gridStyleLine {
+                                border-radius: 0px 6px 6px 0px;
+                                
+                                &::before{
+                                    content: "\2630";
+                                }
+                            }
+                        }
+
+                        .productCount{
+                            display: none;
+                        }
+                    }
+
+                    .lSide{
+                        display: flex;
+                        align-items: center;
+
+                        #sort{
+                            padding: 0.5em 1.5em;
+                            font-size: 15px;
+                            background-color: transparent;
+                            border: 1px solid var(--grey);
+                            border-radius: 4px;
+                            
+                        }
+                    }
+                }
+
                 .products {
                     width: 100%;
                     display: grid;
@@ -592,7 +1019,7 @@
                     grid-template-columns: 1fr;
                     gap: 2em;
 
-                    .proCon{
+                    .proCon {
                         width: fit-content;
                     }
                 }

@@ -1,25 +1,44 @@
-import React, { useEffect, useMemo } from 'react'
-import style from './index.module.scss'
+import React, { useMemo } from 'react';
 import { Helmet } from "react-helmet-async";
 import ShopFilter from '../../Components/Shop Components/Shop Filter';
-import { useProduct } from '../../Context/productContext';
 import ShopProduct from '../../Components/Shop Components/Shop Product';
-import usePagination from '../../Hooks/usePagination';
+import { useProduct } from '../../Context/productContext';
 import { useFilter } from '../../Context/shopFiltersContext';
+import usePagination from '../../Hooks/usePagination';
+import style from './index.module.scss';
 
 function ShopPage() {
+
+    const [sort, setSort] = React.useState(null)
+
+    const [gridStyle, setGridStyle] = React.useState(1)
 
     const { Filters, setFilters, UpdateFilter, bodyTypes, setBodyTypes, models, setModels, GetModels, GetInfo } = useFilter()
 
     const { Products, setProducts, isLoading } = useProduct()
 
-    const FilteredData = useMemo(() => Products.filter(x => x.title.includes(Filters)), [Filters, Products])
+    const FilteredData = useMemo(() => Products.filter(x => x.title.includes(Filters)).sort((a, b) => {
+        if (sort && sort.asc) {
+            return (a[sort.property] > b[sort.property]) ? 1 : ((b[sort.property] > a[sort.property]) ? -1 : 0)
+        }
+        else if (sort && sort.asc === false) {
+            return (a[sort.property] < b[sort.property]) ? 1 : ((b[sort.property] < a[sort.property]) ? -1 : 0)
+        } else {
+            return null
+        }
+    }), [Filters, Products, sort])
 
-    const [PageDatas, currentPage, setCurrentPage, setDataPerPage, pageNumbers, lastPageIndex] = usePagination(FilteredData, 6)
+    const [PageDatas, currentPage, setCurrentPage, setDataPerPage, pageNumbers, lastPageIndex, firstElementIndex, lastElementIndex] = usePagination(FilteredData, 6)
 
 
 
-    
+    function CheckStr(str) {
+        if (typeof str === 'string') {
+            return str.toLowerCase()
+        }
+        return str
+    }
+
     return (
         <>
             <Helmet>
@@ -57,7 +76,20 @@ function ShopPage() {
                     </div>
                     <div className={style.shopBox}>
                         <div className={style.sortBox}>
-
+                            <div className={style.rSide}>
+                                <div className={style.gridStyleBox}>
+                                    <span onClick={() => setGridStyle(1)} className={`${style.gridStyle} ${style.gridStyleBlock} ${gridStyle === 1 ? style.gridActive : null}`}></span>
+                                    <span onClick={() => setGridStyle(2)} className={`${style.gridStyle} ${style.gridStyleLine} ${gridStyle === 2 ? style.gridActive : null}`}></span>
+                                </div>
+                                <span className={style.productCount}>Showing {firstElementIndex} - {lastElementIndex} of {FilteredData ? FilteredData.length : 0} results</span>
+                            </div>
+                            <div className={style.lSide}>
+                                <select name="sort" id={style.sort}>
+                                    <option onClick={() => setSort(null)} value="title">Default</option>
+                                    <option onClick={() => setSort({ property: 'title', asc: true })} value="title">A-Z</option>
+                                    <option onClick={() => setSort({ property: 'title', asc: false })} value="title">Z-A</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div className={style.products}>

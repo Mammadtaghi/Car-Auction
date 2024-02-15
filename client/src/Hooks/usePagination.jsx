@@ -7,7 +7,7 @@ function usePagination(incomeData, incomeDataPerPage = 2, incomeCurrentPage = 1)
     const [dataPerPage, setDataPerPage] = useState(incomeDataPerPage)
 
     useEffect(() => {
-      setData(incomeData)
+        setData(incomeData)
     }, [incomeData])
 
     const lastPageIndex = Math.ceil(data.length / dataPerPage)
@@ -22,7 +22,7 @@ function usePagination(incomeData, incomeDataPerPage = 2, incomeCurrentPage = 1)
 
     const PageDatas = data.slice(firstElementIndex, lastElementIndex)
 
-    return [PageDatas, currentPage, setCurrentPage, setDataPerPage, pageNumbers, lastPageIndex]
+    return [PageDatas, currentPage, setCurrentPage, setDataPerPage, pageNumbers, lastPageIndex, firstElementIndex, lastElementIndex]
 }
 
 export default usePagination
