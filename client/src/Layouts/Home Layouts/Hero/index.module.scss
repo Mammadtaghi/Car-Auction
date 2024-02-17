@@ -1,0 +1,543 @@
+#Hero {
+
+    .container {
+        display: flex;
+
+        .imgBox {
+            overflow: hidden;
+            position: relative;
+
+            img {
+                min-width: 100%;
+            }
+
+            .textBox {
+                padding-left: 10%;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                row-gap: 0.5em;
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                .year {
+                    color: #fff;
+                    font-size: 55px;
+                    font-weight: 300;
+                    line-height: 1em;
+                }
+
+                .title {
+                    color: #fff;
+                    font-size: 85px;
+                    font-weight: 800;
+                    max-width: 690px;
+                    line-height: 1em;
+                }
+
+                .bidBox {
+                    display: flex;
+                    align-items: center;
+                    column-gap: 0.5em;
+
+                    .text {
+                        color: #fff;
+                        font-size: 20px;
+                        font-weight: 200;
+                    }
+
+                    .bid {
+                        color: #fff;
+                        font-weight: 800;
+                        font-size: 22px;
+                        text-decoration: underline;
+                        text-underline-offset: 0.15em;
+                    }
+                }
+
+                .buttons {
+                    margin-top: 3em;
+                    display: flex;
+                    align-items: center;
+                    column-gap: 0.5em;
+
+                    .placeBid {
+                        color: white;
+                        background-color: var(--red);
+                        font-size: 15px;
+                        font-weight: 800;
+                        padding: 0.7em 1em;
+                        border: 2px solid transparent;
+                        border-radius: 4px;
+                        letter-spacing: 1px;
+                        transition: 0.5s;
+
+                        &:hover {
+                            color: black;
+                            background-color: var(--darkGrey);
+                            border: 2px solid transparent;
+                        }
+                    }
+
+                    .check {
+                        color: white;
+                        background-color: var(--darkGrey);
+                        font-size: 15px;
+                        font-weight: 800;
+                        padding: 0.7em 1em;
+                        border: 2px solid transparent;
+                        border-radius: 4px;
+                        letter-spacing: 1px;
+                        transition: 0.5s;
+
+                        &:hover {
+                            color: black;
+                            background-color: var(--red);
+                            border: 2px solid transparent;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1200px) {
+    #Hero {
+
+        .container {
+            display: flex;
+
+            .imgBox {
+                overflow: hidden;
+                position: relative;
+
+                img {
+                    min-width: 100%;
+                }
+
+                .textBox {
+                    padding-left: 10%;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    row-gap: 0.5em;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    .year {
+                        color: #fff;
+                        font-size: 35px;
+                        font-weight: 300;
+                        line-height: 1em;
+                    }
+
+                    .title {
+                        color: #fff;
+                        font-size: 65px;
+                        font-weight: 800;
+                        max-width: 690px;
+                        line-height: 1em;
+                    }
+
+                    .bidBox {
+                        display: flex;
+                        align-items: center;
+                        column-gap: 0.5em;
+
+                        .text {
+                            color: #fff;
+                            font-size: 20px;
+                            font-weight: 200;
+                        }
+
+                        .bid {
+                            color: #fff;
+                            font-weight: 800;
+                            font-size: 22px;
+                            text-decoration: underline;
+                            text-underline-offset: 0.15em;
+                        }
+                    }
+
+                    .buttons {
+                        margin-top: 3em;
+                        display: flex;
+                        align-items: center;
+                        column-gap: 0.5em;
+
+                        .placeBid {
+                            color: white;
+                            background-color: var(--red);
+                            font-size: 15px;
+                            font-weight: 800;
+                            padding: 0.7em 1em;
+                            border: 2px solid transparent;
+                            border-radius: 4px;
+                            letter-spacing: 1px;
+                            transition: 0.5s;
+
+                            &:hover {
+                                color: black;
+                                background-color: var(--darkGrey);
+                                border: 2px solid transparent;
+                            }
+                        }
+
+                        .check {
+                            color: white;
+                            background-color: var(--darkGrey);
+                            font-size: 15px;
+                            font-weight: 800;
+                            padding: 0.7em 1em;
+                            border: 2px solid transparent;
+                            border-radius: 4px;
+                            letter-spacing: 1px;
+                            transition: 0.5s;
+
+                            &:hover {
+                                color: black;
+                                background-color: var(--red);
+                                border: 2px solid transparent;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:900px) {
+    #Hero {
+
+        .container {
+            display: flex;
+
+            .imgBox {
+                overflow: hidden;
+                position: relative;
+
+                img {
+                    min-width: 100%;
+                }
+
+                .textBox {
+                    padding-left: 10%;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    row-gap: 0.3em;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    .year {
+                        color: #fff;
+                        font-size: 15px;
+                        font-weight: 300;
+                        line-height: 1em;
+                    }
+
+                    .title {
+                        color: #fff;
+                        font-size: 45px;
+                        font-weight: 800;
+                        max-width: 690px;
+                        line-height: 1em;
+                    }
+
+                    .bidBox {
+                        display: flex;
+                        align-items: center;
+                        column-gap: 0.3em;
+
+                        .text {
+                            color: #fff;
+                            font-size: 15px;
+                            font-weight: 200;
+                        }
+
+                        .bid {
+                            color: #fff;
+                            font-weight: 800;
+                            font-size: 17px;
+                            text-decoration: underline;
+                            text-underline-offset: 0.15em;
+                        }
+                    }
+
+                    .buttons {
+                        margin-top: 1em;
+                        display: flex;
+                        align-items: center;
+                        column-gap: 0.5em;
+
+                        .placeBid {
+                            color: white;
+                            background-color: var(--red);
+                            font-size: 12px;
+                            font-weight: 800;
+                            padding: 0.7em 1em;
+                            border: 2px solid transparent;
+                            border-radius: 4px;
+                            letter-spacing: 1px;
+                            transition: 0.5s;
+
+                            &:hover {
+                                color: black;
+                                background-color: var(--darkGrey);
+                                border: 2px solid transparent;
+                            }
+                        }
+
+                        .check {
+                            color: white;
+                            background-color: var(--darkGrey);
+                            font-size: 12px;
+                            font-weight: 800;
+                            padding: 0.7em 1em;
+                            border: 2px solid transparent;
+                            border-radius: 4px;
+                            letter-spacing: 1px;
+                            transition: 0.5s;
+
+                            &:hover {
+                                color: black;
+                                background-color: var(--red);
+                                border: 2px solid transparent;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width:520px) {
+    #Hero {
+
+        .container {
+            display: flex;
+
+            .imgBox {
+                overflow: hidden;
+                position: relative;
+
+                img {
+                    min-width: 100%;
+                }
+
+                .textBox {
+                    padding-left: 5%;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    row-gap: 0.3em;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    .year {
+                        color: #fff;
+                        font-size: 15px;
+                        font-weight: 300;
+                        line-height: 1em;
+                    }
+
+                    .title {
+                        color: #fff;
+                        font-size: 25px;
+                        font-weight: 800;
+                        max-width: 690px;
+                        line-height: 1em;
+                    }
+
+                    .bidBox {
+                        display: flex;
+                        align-items: center;
+                        column-gap: 0.3em;
+
+                        .text {
+                            color: #fff;
+                            font-size: 10px;
+                            font-weight: 200;
+                        }
+
+                        .bid {
+                            color: #fff;
+                            font-weight: 800;
+                            font-size: 12px;
+                            text-decoration: underline;
+                            text-underline-offset: 0.15em;
+                        }
+                    }
+
+                    .buttons {
+                        margin-top: 1em;
+                        display: flex;
+                        align-items: center;
+                        column-gap: 0.5em;
+
+                        .placeBid {
+                            color: white;
+                            background-color: var(--red);
+                            font-size: 10px;
+                            font-weight: 800;
+                            padding: 0.7em 1em;
+                            border: 2px solid transparent;
+                            border-radius: 4px;
+                            letter-spacing: 1px;
+                            transition: 0.5s;
+
+                            &:hover {
+                                color: black;
+                                background-color: var(--darkGrey);
+                                border: 2px solid transparent;
+                            }
+                        }
+
+                        .check {
+                            color: white;
+                            background-color: var(--darkGrey);
+                            font-size: 10px;
+                            font-weight: 800;
+                            padding: 0.7em 1em;
+                            border: 2px solid transparent;
+                            border-radius: 4px;
+                            letter-spacing: 1px;
+                            transition: 0.5s;
+
+                            &:hover {
+                                color: black;
+                                background-color: var(--red);
+                                border: 2px solid transparent;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:350px) {
+    #Hero {
+
+        .container {
+            display: flex;
+
+            .imgBox {
+                overflow: hidden;
+                position: relative;
+
+                img {
+                    min-width: 100%;
+                }
+
+                .textBox {
+                    padding-left: 5%;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    row-gap: 0.2em;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+
+                    .year {
+                        color: #fff;
+                        font-size: 12px;
+                        font-weight: 300;
+                        line-height: 1em;
+                    }
+
+                    .title {
+                        color: #fff;
+                        font-size: 20px;
+                        font-weight: 800;
+                        max-width: 690px;
+                        line-height: 1em;
+                    }
+
+                    .bidBox {
+                        display: flex;
+                        align-items: center;
+                        column-gap: 0.2em;
+
+                        .text {
+                            color: #fff;
+                            font-size: 7px;
+                            font-weight: 200;
+                        }
+
+                        .bid {
+                            color: #fff;
+                            font-weight: 800;
+                            font-size: 10px;
+                            text-decoration: underline;
+                            text-underline-offset: 0.15em;
+                        }
+                    }
+
+                    .buttons {
+                        margin-top: 1em;
+                        display: flex;
+                        align-items: center;
+                        column-gap: 0.5em;
+
+                        .placeBid {
+                            color: white;
+                            background-color: var(--red);
+                            font-size: 7px;
+                            font-weight: 800;
+                            padding: 0.7em 1em;
+                            border: 2px solid transparent;
+                            border-radius: 4px;
+                            letter-spacing: 1px;
+                            transition: 0.5s;
+
+                            &:hover {
+                                color: black;
+                                background-color: var(--darkGrey);
+                                border: 2px solid transparent;
+                            }
+                        }
+
+                        .check {
+                            color: white;
+                            background-color: var(--darkGrey);
+                            font-size: 7px;
+                            font-weight: 800;
+                            padding: 0.7em 1em;
+                            border: 2px solid transparent;
+                            border-radius: 4px;
+                            letter-spacing: 1px;
+                            transition: 0.5s;
+
+                            &:hover {
+                                color: black;
+                                background-color: var(--red);
+                                border: 2px solid transparent;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import Button from '../../../Components/Common Components/Button';
-import style from './index.module.scss';
 import { useResNav } from '../../../Context/resNavContext';
 import { useUser } from '../../../Context/userContext';
+import style from './index.module.scss';
 
 function Navbar() {
 
@@ -75,9 +74,9 @@ function Navbar() {
                                     <div className={style.subImgBox}>
                                         <img src="https://autobid.modeltheme.com/wp-content/uploads/2023/12/autobid-mega-img-v2.jpg" alt="" />
                                         <div className={style.textBox}>
-                                            <h2>Auction Lot #12</h2>
+                                            <h2 className={style.auctionLot}>Auction Lot #12</h2>
                                             <span className={style.checkit}>Check it Now!</span>
-                                            <button className={`Button2`}>View Entry</button>
+                                            <button className={`${style.viewBtn}`}>View Entry</button>
                                         </div>
                                     </div>
                                 </div>
@@ -144,7 +143,7 @@ function Navbar() {
                         <NavLink className={`${style.NavLink}`} to={"/cart"}><i className={`fa-solid fa-basket-shopping ${style.cart}`}></i></NavLink>
                         <span className={`${style.NavLink}`}><i className={`fa-solid fa-magnifying-glass ${style.magnify}`}></i></span>
                         <button className={`NavButton ${style.button}`}>Sell Now</button>
-                        <i onClick={()=>setIsOpen(!isOpen)} className={`fa-solid fa-bars ${style.toggle}`}></i>
+                        <i onClick={() => setIsOpen(!isOpen)} className={`fa-solid fa-bars ${style.toggle}`}></i>
                     </div>
                 </div>
             </nav>

@@ -1,5 +1,4 @@
 #Footer {
-    color: #fff;
     background-color: #070707;
 
     .container {
@@ -27,6 +26,7 @@
                 }
 
                 .listTitle {
+                    color: #fff;
                     font-weight: 800;
                     letter-spacing: 1px;
                 }
@@ -39,11 +39,18 @@
 
                     li {
 
+
+                        .text{
+                            color: #fff;
+                        }
+
                         .arrow {
+                            color: #fff;
                             cursor: pointer;
                             transition: 0.3s;
 
                             &::before {
+                                color: var(--grey);
                                 display: inline-block;
                                 content: '\226B';
                                 margin-right: 0.7em;
@@ -55,8 +62,8 @@
                                 color: var(--red);
 
                                 &::before {
-                                    color: #999;
-                                    transform: translateX(4px);
+                                    color: #fff;
+                                    transform: translateX(4px) scale(1.1);
                                 }
                             }
                         }
@@ -79,6 +86,7 @@
                                 transition: 0.4s;
 
                                 .icon {
+                                    color: #fff;
                                     font-size: 13px;
                                     width: 30px;
                                     height: 30px;
@@ -113,7 +121,8 @@
             line-height: 1.5em;
             row-gap: 1em;
 
-            .copyright {
+            .copyrigth {
+                color: #fff;
                 font-size: 15px;
             }
 
@@ -149,8 +158,8 @@
                 display: grid;
                 place-items: baseline baseline;
                 grid-template-areas:
-                'grid1 grid2'
-                'grid3 grid4'
+                    'grid1 grid2'
+                    'grid3 grid4'
                 ;
                 grid-template-columns: 1fr 1fr;
                 grid-template-rows: 1fr 1fr;
@@ -228,10 +237,10 @@
                 display: grid;
                 place-items: baseline baseline;
                 grid-template-areas:
-                'grid1'
-                'grid2'
-                'grid3'
-                'grid4'
+                    'grid1'
+                    'grid2'
+                    'grid3'
+                    'grid4'
                 ;
                 grid-template-columns: 1fr;
                 grid-template-rows: 1fr 1fr 1fr 1fr;
