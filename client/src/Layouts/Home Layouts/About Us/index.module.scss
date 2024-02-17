@@ -1,0 +1,243 @@
+#AboutUs {
+    min-height: 800px;
+
+    .aboutText {
+
+        &::selection {
+            background-color: var(--red);
+            color: #fff;
+        }
+    }
+
+    .container {
+        position: relative;
+        display: flex;
+
+        img.car{
+            max-height: 1200px;
+            max-height: none;
+            min-height: 900px;
+        }
+
+        .textBox {
+            padding-left: 50%;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-self: flex-end;
+            justify-content: center;
+            text-align: start;
+            position: absolute;
+
+            .subTitle {
+                font-size: 16px;
+                color: var(--red);
+                letter-spacing: 1px;
+            }
+
+            .title {
+                font-size: 2em;
+                color: #122212;
+                font-weight: 800;
+                max-width: 70%;
+                margin-bottom: 1em;
+            }
+
+            .info {
+                font-weight: 200;
+                margin-bottom: 1em;
+            }
+
+            ul.list {
+                list-style-type: disc;
+                margin-left: 2em;
+                display: flex;
+                flex-direction: column;
+
+                li {
+                    list-style: disc outside none;
+                    display: list-item;
+                    margin-left: 1em;
+                    margin-bottom: 0.3em;
+
+                    .listTitle {
+                        color: #122212;
+                        font-weight: 700;
+                        margin-right: 0.4em;
+                    }
+                }
+            }
+
+            .signature{
+                margin-top: 1em;
+                margin-left: 1em;
+                max-width: 200px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    #AboutUs {
+        min-height: 0px;
+        padding: 3em 0;
+    
+        .aboutText {
+    
+            &::selection {
+                background-color: var(--red);
+                color: #fff;
+            }
+        }
+    
+        .container {
+            position: relative;
+            display: flex;
+    
+            img.car{
+                display: none;
+            }
+    
+            .textBox {
+                padding-left: 5%;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-self: flex-end;
+                justify-content: center;
+                text-align: start;
+                position: relative;
+    
+                .subTitle {
+                    font-size: 16px;
+                    color: var(--red);
+                    letter-spacing: 1px;
+                }
+    
+                .title {
+                    font-size: 2em;
+                    color: #122212;
+                    font-weight: 800;
+                    max-width: 70%;
+                    margin-bottom: 1em;
+                }
+    
+                .info {
+                    font-weight: 200;
+                    margin-bottom: 1em;
+                }
+    
+                ul.list {
+                    list-style-type: disc;
+                    margin-left: 2em;
+                    display: flex;
+                    flex-direction: column;
+    
+                    li {
+                        list-style: disc outside none;
+                        display: list-item;
+                        margin-left: 1em;
+                        margin-bottom: 0.3em;
+    
+                        .listTitle {
+                            color: #122212;
+                            font-weight: 700;
+                            margin-right: 0.4em;
+                        }
+                    }
+                }
+    
+                .signature{
+                    margin-top: 1em;
+                    margin-left: 1em;
+                    max-width: 200px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:530px) {
+    #AboutUs {
+        min-height: 0px;
+        padding: 3em 0;
+    
+        .aboutText {
+    
+            &::selection {
+                background-color: var(--red);
+                color: #fff;
+            }
+        }
+    
+        .container {
+            position: relative;
+            display: flex;
+    
+            img.car{
+                display: none;
+            }
+    
+            .textBox {
+                padding-left: 5%;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-self: flex-end;
+                justify-content: center;
+                text-align: start;
+                position: relative;
+    
+                .subTitle {
+                    font-size: 14px;
+                    color: var(--red);
+                    letter-spacing: 1px;
+                }
+    
+                .title {
+                    font-size: 1.5em;
+                    color: #122212;
+                    font-weight: 800;
+                    max-width: 70%;
+                    margin-bottom: 1em;
+                }
+    
+                .info {
+                    font-size: 13px;
+                    font-weight: 200;
+                    margin-bottom: 1em;
+                }
+    
+                ul.list {
+                    list-style-type: disc;
+                    margin-left: 2em;
+                    display: flex;
+                    flex-direction: column;
+    
+                    li {
+                        list-style: disc outside none;
+                        display: list-item;
+                        margin-left: 1em;
+                        margin-bottom: 0.3em;
+                        font-size: 13px;
+    
+                        .listTitle {
+                            color: #122212;
+                            font-weight: 700;
+                            margin-right: 0.4em;
+                        }
+                    }
+                }
+    
+                .signature{
+                    margin-top: 1em;
+                    margin-left: 1em;
+                    max-width: 200px;
+                }
+            }
+        }
+    }
+}

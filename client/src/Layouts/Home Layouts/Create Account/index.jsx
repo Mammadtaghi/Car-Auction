@@ -10,7 +10,8 @@ function CreateAccount() {
                 <title>CreateAccount</title>
             </Helmet>
             <div id={style.CreateAccount}>
-                CreateAccount
+                <p className={style.text}>Are you new here?</p>
+                <button className='Button2'>Register</button>
             </div>
         </>
     )
