@@ -5,12 +5,23 @@ import { Helmet } from "react-helmet-async";
 function MailBox() {
     return (
         <>
-            <Helmet>
-                <link rel="shortcut icon" href="https://static.vecteezy.com/system/resources/previews/000/630/443/original/vector-auction-icon-sign-illustration.png" type="image/png" />
-                <title>MailBox</title>
-            </Helmet>
             <div id={style.MailBox}>
-                MailBox
+                <div className={style.container}>
+                    <div className={style.textBox}>
+                        <h4 className={`${style.subTitle} ${style.text}`}>Right into Mailbox</h4>
+                        <h1 className={`${style.title} ${style.text}`}>Get the news by subscribing to our newsletter. Tips directly!</h1>
+                        <div className={`${style.inputBox}`}>
+                            <input className={style.input} type="text" placeholder='Enter your email' />
+                            <button className={`Button2 ${style.submit}`}>Submit</button>
+                        </div>
+                    </div>
+                    <div className={style.imgBox}>
+                        <img src="https://autobid.modeltheme.com/wp-content/uploads/2023/11/autobid-newsletter_pic.png" alt="" />
+                    </div>
+                </div>
+                <div className={style.imgBoxF}>
+                    <img src="https://autobid.modeltheme.com/wp-content/uploads/2023/11/autobid-newsletter_pic.png" alt="" />
+                </div>
             </div>
         </>
     )

@@ -13,10 +13,6 @@ import 'swiper/css/autoplay';
 function Hero() {
     return (
         <>
-            <Helmet>
-                <link rel="shortcut icon" href="https://static.vecteezy.com/system/resources/previews/000/630/443/original/vector-auction-icon-sign-illustration.png" type="image/png" />
-                <title>Hero</title>
-            </Helmet>
             <div id={style.Hero}>
                 <div className={style.container}>
                     <Swiper

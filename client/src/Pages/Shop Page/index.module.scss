@@ -63,13 +63,13 @@
 
                         .text {
                             cursor: pointer;
-                            color: var(--white);
+                            color: var(--darkGrey);
                             transition: 0.4s;
                         }
 
                         .count {
                             cursor: pointer;
-                            color: var(--grey);
+                            color: var(--darkGrey);
                             transition: 0.4s;
                         }
 
@@ -164,16 +164,59 @@
                 }
 
                 .lSide{
+                    position: relative;
                     display: flex;
                     align-items: center;
 
+                    .selectedSort{
+                        cursor: pointer;
+                        min-width: 105px;
+                        font-weight: 500;
+                        display: inline-block;
+                        border: 1px solid black;
+                        padding: 0.5em 1.5em;
+                        text-align: center;
+
+                        &:hover + #sort{
+                            visibility: visible;
+                            opacity: 1;
+                            transform: scale(1);
+                        }
+                    }
+
                     #sort{
+                        visibility: hidden;
+                        opacity: 0;
+                        transform: scale(0);
+                        transform-origin: bottom center;
+                        position: absolute;
+                        top: 100%;
+                        right: 0;
                         padding: 0.5em 1.5em;
                         font-size: 15px;
                         background-color: transparent;
                         border: 1px solid var(--grey);
                         border-radius: 4px;
+                        display: flex;
+                        flex-direction: column;
+                        transition: 0.25s;
                         
+                        .option{
+                            cursor: pointer;
+                            font-weight: 500;
+                            transition: 0.4s;
+
+                            &:hover{
+                                color: var(--red);
+
+                            }
+                        }
+
+                        &:hover{
+                            visibility: visible;
+                            opacity: 1;
+                            transform: scale(1);
+                        }
                     }
                 }
             }
@@ -364,16 +407,60 @@
                     }
 
                     .lSide{
+                        position: relative;
                         display: flex;
                         align-items: center;
 
+                        .selectedSort{
+                            cursor: pointer;
+                            min-width: 105px;
+                            font-weight: 500;
+                            display: inline-block;
+                            border: 1px solid black;
+                            padding: 0.5em 1.5em;
+                            display: flex;
+                            text-align: center;
+
+                            &:hover + #sort{
+                                visibility: visible;
+                                opacity: 1;
+                                transform: scale(1);
+                            }
+                        }
+
                         #sort{
+                            visibility: hidden;
+                            opacity: 0;
+                            transform: scale(0);
+                            transform-origin: bottom center;
+                            position: absolute;
+                            top: 100%;
+                            right: 0;
                             padding: 0.5em 1.5em;
                             font-size: 15px;
                             background-color: transparent;
                             border: 1px solid var(--grey);
                             border-radius: 4px;
+                            display: flex;
+                            flex-direction: column;
+                            transition: 0.25s;
                             
+                            .option{
+                                cursor: pointer;
+                                font-weight: 500;
+                                transition: 0.4s;
+
+                                &:hover{
+                                    color: var(--red);
+
+                                }
+                            }
+
+                            &:hover{
+                                visibility: visible;
+                                opacity: 1;
+                                transform: scale(1);
+                            }
                         }
                     }
                 }
@@ -567,16 +654,60 @@
                     }
 
                     .lSide{
+                        position: relative;
                         display: flex;
                         align-items: center;
 
+                        .selectedSort{
+                            cursor: pointer;
+                            min-width: 105px;
+                            font-weight: 500;
+                            display: inline-block;
+                            border: 1px solid black;
+                            padding: 0.5em 1.5em;
+                            display: flex;
+                            text-align: center;
+
+                            &:hover + #sort{
+                                visibility: visible;
+                                opacity: 1;
+                                transform: scale(1);
+                            }
+                        }
+
                         #sort{
+                            visibility: hidden;
+                            opacity: 0;
+                            transform: scale(0);
+                            transform-origin: bottom center;
+                            position: absolute;
+                            top: 100%;
+                            right: 0;
                             padding: 0.5em 1.5em;
                             font-size: 15px;
                             background-color: transparent;
                             border: 1px solid var(--grey);
                             border-radius: 4px;
+                            display: flex;
+                            flex-direction: column;
+                            transition: 0.25s;
                             
+                            .option{
+                                cursor: pointer;
+                                font-weight: 500;
+                                transition: 0.4s;
+
+                                &:hover{
+                                    color: var(--red);
+
+                                }
+                            }
+
+                            &:hover{
+                                visibility: visible;
+                                opacity: 1;
+                                transform: scale(1);
+                            }
                         }
                     }
                 }
@@ -779,16 +910,60 @@
                     }
 
                     .lSide{
+                        position: relative;
                         display: flex;
                         align-items: center;
 
+                        .selectedSort{
+                            cursor: pointer;
+                            min-width: 105px;
+                            font-weight: 500;
+                            display: inline-block;
+                            border: 1px solid black;
+                            padding: 0.5em 1.5em;
+                            display: flex;
+                            text-align: center;
+
+                            &:hover + #sort{
+                                visibility: visible;
+                                opacity: 1;
+                                transform: scale(1);
+                            }
+                        }
+
                         #sort{
+                            visibility: hidden;
+                            opacity: 0;
+                            transform: scale(0);
+                            transform-origin: bottom center;
+                            position: absolute;
+                            top: 100%;
+                            right: 0;
                             padding: 0.5em 1.5em;
                             font-size: 15px;
                             background-color: transparent;
                             border: 1px solid var(--grey);
                             border-radius: 4px;
+                            display: flex;
+                            flex-direction: column;
+                            transition: 0.25s;
                             
+                            .option{
+                                cursor: pointer;
+                                font-weight: 500;
+                                transition: 0.4s;
+
+                                &:hover{
+                                    color: var(--red);
+
+                                }
+                            }
+
+                            &:hover{
+                                visibility: visible;
+                                opacity: 1;
+                                transform: scale(1);
+                            }
                         }
                     }
                 }
@@ -991,16 +1166,60 @@
                     }
 
                     .lSide{
+                        position: relative;
                         display: flex;
                         align-items: center;
 
+                        .selectedSort{
+                            cursor: pointer;
+                            min-width: 105px;
+                            font-weight: 500;
+                            display: inline-block;
+                            border: 1px solid black;
+                            padding: 0.5em 1.5em;
+                            display: flex;
+                            text-align: center;
+
+                            &:hover + #sort{
+                                visibility: visible;
+                                opacity: 1;
+                                transform: scale(1);
+                            }
+                        }
+
                         #sort{
+                            visibility: hidden;
+                            opacity: 0;
+                            transform: scale(0);
+                            transform-origin: bottom center;
+                            position: absolute;
+                            top: 100%;
+                            right: 0;
                             padding: 0.5em 1.5em;
                             font-size: 15px;
                             background-color: transparent;
                             border: 1px solid var(--grey);
                             border-radius: 4px;
+                            display: flex;
+                            flex-direction: column;
+                            transition: 0.25s;
                             
+                            .option{
+                                cursor: pointer;
+                                font-weight: 500;
+                                transition: 0.4s;
+
+                                &:hover{
+                                    color: var(--red);
+
+                                }
+                            }
+
+                            &:hover{
+                                visibility: visible;
+                                opacity: 1;
+                                transform: scale(1);
+                            }
                         }
                     }
                 }

@@ -1,14 +1,6 @@
 #AboutUs {
     min-height: 800px;
 
-    .aboutText {
-
-        &::selection {
-            background-color: var(--red);
-            color: #fff;
-        }
-    }
-
     .container {
         position: relative;
         display: flex;

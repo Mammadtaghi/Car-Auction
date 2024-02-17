@@ -19,6 +19,7 @@
         }
 
         .dropdownIcon {
+            cursor: pointer;
             user-select: none;
             font-size: 27px;
             font-weight: 700;
@@ -52,7 +53,7 @@
             transition: 0.3s;
 
             .text {
-                color: var(--white);
+                color: var(--darkGrey);
                 transition: 0.3s;
             }
 

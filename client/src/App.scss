@@ -176,3 +176,14 @@
     top: 0;
     z-index: 15;
 }
+
+
+// Selection
+
+.selectionText {
+
+    &::selection {
+        background-color: var(--red);
+        color: #fff;
+    }
+}

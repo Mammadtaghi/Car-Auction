@@ -31,6 +31,7 @@
         row-gap: 0.5em;
 
         .title {
+            color: var(--white);
             width: fit-content;
             cursor: pointer;
             font-weight: 800;
@@ -49,6 +50,7 @@
             column-gap: 0.5em;
 
             .info {
+                color: var(--white);
                 font-size: 16px;
                 font-weight: 500;
 
@@ -114,6 +116,7 @@
             column-gap: 0.8em;
 
             .time {
+                color: var(--white);
                 cursor: default;
                 font-size: 20px;
                 transition: 0.3s;
@@ -126,6 +129,7 @@
             }
 
             .timeSeperator {
+                color: var(--white);
                 font-size: 20px;
             }
 
@@ -138,7 +142,8 @@
             }
 
             .ended {
-                font-size: 20px;
+                font-style: italic;
+                font-size: 18px;
                 color: var(--red);
             }
         }

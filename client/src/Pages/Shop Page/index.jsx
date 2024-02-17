@@ -18,6 +18,7 @@ function ShopPage() {
     const { Products, setProducts, isLoading } = useProduct()
 
     const FilteredData = useMemo(() => Products.filter(x => x.title.includes(Filters)).sort((a, b) => {
+        // console.log(sort);
         if (sort && sort.asc) {
             return (a[sort.property] > b[sort.property]) ? 1 : ((b[sort.property] > a[sort.property]) ? -1 : 0)
         }
@@ -84,11 +85,12 @@ function ShopPage() {
                                 <span className={style.productCount}>Showing {firstElementIndex + 1} - {lastElementIndex} of {FilteredData ? FilteredData.length : 0} results</span>
                             </div>
                             <div className={style.lSide}>
-                                <select name="sort" id={style.sort}>
-                                    <option onClick={() => setSort(null)} value="title">Default</option>
-                                    <option onClick={() => setSort({ property: 'title', asc: true })} value="title">A-Z</option>
-                                    <option onClick={() => setSort({ property: 'title', asc: false })} value="title">Z-A</option>
-                                </select>
+                                <span className={style.selectedSort}>{!sort ? 'Default' : sort.value}</span>
+                                <div id={style.sort}>
+                                    <span className={style.option} onClick={() => setSort(null)} value="title">Default</span>
+                                    <span className={style.option} onClick={() => setSort({ property: 'title', asc: true, value: 'A-Z' })} value="title">A-Z</span>
+                                    <span className={style.option} onClick={() => setSort({ property: 'title', asc: false, value: 'Z-A' })} value="title">Z-A</span>
+                                </div>
                             </div>
                         </div>
 
