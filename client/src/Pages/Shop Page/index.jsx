@@ -11,6 +11,8 @@ function ShopPage() {
 
     const [sort, setSort] = React.useState(null)
 
+    const [car, setCar] = React.useState('')
+
     const [gridStyle, setGridStyle] = React.useState(1)
 
     const { Filters, setFilters, UpdateFilter, bodyTypes, setBodyTypes, models, setModels, GetModels, GetInfo } = useFilter()
@@ -18,7 +20,6 @@ function ShopPage() {
     const { Products, setProducts, isLoading } = useProduct()
 
     const FilteredData = useMemo(() => Products.filter(x => x.title.includes(Filters)).sort((a, b) => {
-        // console.log(sort);
         if (sort && sort.asc) {
             return (a[sort.property] > b[sort.property]) ? 1 : ((b[sort.property] > a[sort.property]) ? -1 : 0)
         }
@@ -31,7 +32,10 @@ function ShopPage() {
 
     const [PageDatas, currentPage, setCurrentPage, setDataPerPage, pageNumbers, lastPageIndex, firstElementIndex, lastElementIndex] = usePagination(FilteredData, 6)
 
-
+    function handleFilter(model) {
+        setFilters(Filters !== model.model ? model.model : '')
+        setCar(model.model === car ? '' : model.model)
+    }
 
     function CheckStr(str) {
         if (typeof str === 'string') {
@@ -61,9 +65,9 @@ function ShopPage() {
                             <div className={`${style.filters}`}>
                                 {!models ? <span className={style.loader}></span> :
                                     models.map((model, i) => (
-                                        <div key={i} onClick={() => setFilters(Filters !== model.model ? model.model : '')} className={style.modelFilter}>
-                                            <span className={style.text}>{model.model}</span>
-                                            <span className={style.count}>({model.count})</span>
+                                        <div key={i} onClick={() => handleFilter(model)} className={style.modelFilter}>
+                                            <span style={car && car === model.model ? {color:'var(--red)'} : {}} className={style.text}>{model.model}</span>
+                                            <span style={car && car === model.model ? {color:'var(--red)'} : {}} className={style.count}>({model.count})</span>
                                         </div>
                                     ))
                                 }

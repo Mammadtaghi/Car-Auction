@@ -1,6 +1,6 @@
 #ShopProduct {
     border-radius: 10%;
-    background-color: #252627;
+    background-color: var(--darkGrey);
     width: 350px;
     height: 450px;
     display: flex;
@@ -45,6 +45,7 @@
 
         .infoBox {
             cursor: default;
+            color: var(--white);
             display: flex;
             align-items: flex-end;
             column-gap: 0.5em;

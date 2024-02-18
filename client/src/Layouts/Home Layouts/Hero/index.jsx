@@ -21,7 +21,7 @@ function Hero() {
                         slidesPerView={1}
                         loop={true}
                         navigation
-                        autoplay={true}
+                        autoplay={{delay:10000}}
                         pagination={{ clickable: true }}
                         onSwiper={(swiper) => console.log(swiper)}
                         onSlideChange={() => console.log('slide change')}

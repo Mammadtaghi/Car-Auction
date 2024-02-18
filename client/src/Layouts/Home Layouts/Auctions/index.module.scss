@@ -1,0 +1,107 @@
+#Auctions {
+    padding: 5em 2em;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+
+        .sectionTitle {
+            font-weight: 800;
+            margin-bottom: 2em;
+        }
+
+        .products {
+            display: grid;
+            place-items: center center;
+            grid-template-areas:
+                'grid1 grid2 grid3 grid4'
+                'grid5 grid6 grid7 grid8';
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2em;
+        }
+    }
+}
+
+@media screen and (max-width:1580px) {
+    #Auctions {
+        padding: 5em 2em;
+
+        .container {
+            display: flex;
+            flex-direction: column;
+
+            .sectionTitle {
+                font-weight: 800;
+                margin-bottom: 2em;
+            }
+
+            .products {
+                display: grid;
+                grid-template-areas:
+                    'grid1 grid2 grid3'
+                    'grid4 grid5 grid6'
+                    'grid7 grid8 .';
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 2em;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1200px) {
+    #Auctions {
+        padding: 5em 2em;
+
+        .container {
+            display: flex;
+            flex-direction: column;
+
+            .sectionTitle {
+                font-weight: 800;
+                margin-bottom: 2em;
+            }
+
+            .products {
+                display: grid;
+                grid-template-areas:
+                    'grid1 grid2'
+                    'grid3 grid4'
+                    'grid5 grid6'
+                    'grid7 grid8';
+                grid-template-columns: 1fr 1fr;
+                gap: 2em;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:810px) {
+    #Auctions {
+        padding: 5em 1em;
+
+        .container {
+            display: flex;
+            flex-direction: column;
+
+            .sectionTitle {
+                font-weight: 800;
+                margin-bottom: 2em;
+            }
+
+            .products {
+                display: grid;
+                grid-template-areas:
+                    'grid1'
+                    'grid2'
+                    'grid3'
+                    'grid4'
+                    'grid5'
+                    'grid6'
+                    'grid7'
+                    'grid8';
+                grid-template-columns: 1fr;
+                gap: 2em;
+            }
+        }
+    }
+}
