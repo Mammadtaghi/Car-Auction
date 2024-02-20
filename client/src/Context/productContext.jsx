@@ -41,7 +41,6 @@ export const ProductProvider = ({ children }) => {
         return () => clearInterval(intervalId);
     }, []);
 
-    // Function to format remaining time
     function formatTime(time) {
         const days = Math.floor(time / (1000 * 60 * 60 * 24));
         const hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));

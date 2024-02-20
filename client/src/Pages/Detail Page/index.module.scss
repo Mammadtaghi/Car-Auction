@@ -1,0 +1,35 @@
+#DetailPage {
+
+    .container {
+        display: flex;
+        flex-direction: column;
+
+        .pageTitle {
+            padding: 2em 5em;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--grey);
+
+            .carName {
+                font-weight: 800;
+                letter-spacing: 1px;
+            }
+
+            .path {
+                display: flex;
+                align-items: center;
+                column-gap: 0.3em;
+                font-size: 17px;
+                font-weight: 500;
+            }
+        }
+
+        .productBox {
+            padding: 2em 3em;
+            display: flex;
+            align-items: center;
+
+            
+        }
+    }
+}

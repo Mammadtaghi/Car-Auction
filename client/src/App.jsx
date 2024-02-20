@@ -1,19 +1,19 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.scss'
 import MainLayout from './Layouts/MainLayout'
-import AboutPage from './Pages/About Page'
-import FAQPage from './Pages/FAQ Page'
-import ShopPage from './Pages/Shop Page'
-import Home from './Pages/Home Page'
 import UserLayout from './Layouts/UserLayout'
-import WishlistPage from './Pages/Wishlist Page'
+import AboutPage from './Pages/About Page'
+import AccountPage from './Pages/Account Page'
 import CartPage from './Pages/Cart Page'
 import CheckOutPage from './Pages/CheckOut Page'
-import AccountPage from './Pages/Account Page'
+import DetailPage from './Pages/Detail Page'
 import ErrorPage from './Pages/Error Page'
+import FAQPage from './Pages/FAQ Page'
+import Home from './Pages/Home Page'
 import Login from './Pages/Login Page'
 import Register from './Pages/Register Page'
-import { ShopFilterProvider } from './Context/shopFiltersContext'
+import ShopPage from './Pages/Shop Page'
+import WishlistPage from './Pages/Wishlist Page'
 
 function App() {
 
@@ -26,6 +26,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
         <Route path='/shop' element={<ShopPage />} />
+        <Route path='/detail/:id' element={<DetailPage />} />
         <Route path='*' element={<ErrorPage />} />
         <Route element={<UserLayout />} >
           <Route path='/wishlist' element={<WishlistPage />} />
