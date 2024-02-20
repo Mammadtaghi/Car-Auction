@@ -7,6 +7,20 @@ export async function CheckOffer(req, res, next) {
 
         const product = await Product.findById(id).populate('Auctioneer')
 
+        console.log("Checking Auction Date...");
+
+        if (new Date(product.startTime).getTime() > Date.now()) {
+            res.status(406).json({ message: "Auction haven't started yet!" })
+            return
+        }
+
+        if (new Date(product.endTime).getTime() < Date.now()) {
+            res.status(406).json({ message: "Auction ended!" })
+            return
+        }
+
+        console.log("Checking Offer...");
+
         // Don't let Auctioneer to buy his/her own product !
         if (product.Auctioneer._id.toString() === req.id.toString()) {
             res.status(406).json({ message: "You can't buy your own product!" })
