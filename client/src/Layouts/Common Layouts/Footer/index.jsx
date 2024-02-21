@@ -43,7 +43,7 @@ function Footer() {
                             <h2 className={style.listTitle}>Latest Cars</h2>
                             <ul className={style.list}>
                                 {models.length ? models.slice(-6).map((model, i) => (
-                                    <li key={i}><span className={`${style.arrow}`} onClick={() => GoShop(model.model) }>
+                                    <li key={i}><span className={`${style.arrow}`} onClick={() => GoShop(model.model)}>
                                         {model.model}
                                     </span></li>
                                 )) : null}
@@ -70,7 +70,7 @@ function Footer() {
                                 <li><NavLink to={"/"} className={`${style.arrow}`}>Dashboard</NavLink></li>
                                 <li><NavLink to={"/"} className={`${style.arrow}`}>Contact</NavLink></li>
                                 <li>
-                                    <div direction="right" behavior="scrolling" onMouseOver={(e) => e.target.start()} loop="infinite" className={`${style.iconsBox}`}>
+                                    <div className={`${style.iconsBox}`}>
                                         <div className={`${style.footerIcon}`}>
                                             <i className={`fa-brands fa-facebook ${style.icon}`}></i>
                                         </div>
@@ -99,7 +99,7 @@ function Footer() {
                         <div className={style.apps}>
                             <div className={style.appBox}>
                                 <img src="https://autobid.modeltheme.com/wp-content/uploads/2023/11/autobid-google.svg" alt="" />
-                            </div>
+                            </div>Profile
                             <div className={style.appBox}>
                                 <img src="https://autobid.modeltheme.com/wp-content/uploads/2023/11/autobid-appstore.svg" alt="" />
                             </div>

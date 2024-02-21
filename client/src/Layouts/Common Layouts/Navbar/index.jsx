@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useResNav } from '../../../Context/resNavContext';
 import { useUser } from '../../../Context/userContext';
 import style from './index.module.scss';
 
 function Navbar() {
+
+    const navigate = useNavigate()
 
     const { isOpen, setIsOpen } = useResNav()
 
@@ -142,7 +144,7 @@ function Navbar() {
                         <NavLink className={`${style.NavLink}`} to={"/wishlist"}><i className={`fa-regular fa-heart ${style.heart}`}></i></NavLink>
                         <NavLink className={`${style.NavLink}`} to={"/cart"}><i className={`fa-solid fa-basket-shopping ${style.cart}`}></i></NavLink>
                         <span className={`${style.NavLink}`}><i className={`fa-solid fa-magnifying-glass ${style.magnify}`}></i></span>
-                        <button className={`NavButton ${style.button}`}>Sell Now</button>
+                        <button className={`NavButton ${style.button}`} onClick={()=>navigate(user.role ? '/shop' : '/login')}>Sell Now</button>
                         <i onClick={() => setIsOpen(!isOpen)} className={`fa-solid fa-bars ${style.toggle}`}></i>
                     </div>
                 </div>

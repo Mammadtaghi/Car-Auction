@@ -2,13 +2,17 @@ import React from 'react';
 import { useFilter } from '../../../Context/shopFiltersContext';
 import style from "./index.module.scss";
 
-function ShopFilter({ title, filterData }) {
-
-    const { Filters, setFilters, UpdateFilter } = useFilter()
+function ShopFilter({ title, filterData, filterBy, setFilterBy }) {
 
     const [isOpen, setIsOpen] = React.useState(false)
 
     const [filter, setFilter] = React.useState('')
+
+    const { Filters, setFilters, colors, setColors, filterByColor, setFilterByColor, filterByBody, setFilterByBody, AddToFilter, UpdateFilter, bodyTypes, setBodyTypes, models, setModels, GetModels, GetInfo } = useFilter()
+
+    function handleFilters(filter, filterBy, setFilterBy) {
+        AddToFilter(filter, filterBy, setFilterBy)
+    }
 
     return (
         <div id={style.Filter}>
@@ -21,7 +25,7 @@ function ShopFilter({ title, filterData }) {
             <div className={`${style.filters}`} style={isOpen ? { maxHeight: '800px' } : { maxHeight: '0px' }}>
 
                 {filterData ? filterData.map((x, i) => (
-                    <div key={i} onClick={() => setFilter(filter === x ? '' : x)} className={`${style.filter} ${filter === x ? style.selected : ''}`}>
+                    <div key={i} onClick={() => handleFilters(x, filterBy, setFilterBy)} className={`${style.filter} ${filterBy.includes(x) ? style.selected : ''}`}>
                         <span className={style.text}>{x}</span>
                     </div>
                 )) : null}

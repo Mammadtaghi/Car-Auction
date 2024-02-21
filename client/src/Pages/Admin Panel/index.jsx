@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from './index.module.scss'
 import { Helmet } from "react-helmet-async";
+import { useUser } from '../../Context/userContext';
 
 function AdminPanel() {
+
+    const [page, setPage] = useState('users')
+
+    const { user, setUser, Logout } = useUser()
+
+
     return (
         <>
             <Helmet>
@@ -10,33 +17,27 @@ function AdminPanel() {
                 <title>AdminPanel</title>
             </Helmet>
             <div id={style.AdminPanel}>
-                <div style={isSidebarOpen ? { left: '0' } : { left: '-200px' }} className={`${style.menu}`}>
-                    <div onClick={() => setIsSidebarOpen(!isSidebarOpen)} className={style.arrow}>
-                        <i className={`fa-solid fa-arrow-${isSidebarOpen ? 'left' : 'right'}-long`}></i>
-                    </div>
-                    <h2 className={style.menuTitle}>Account</h2>
+                <div className={`${style.menu}`}>
+                    <h2 className={style.menuTitle}>Admin Panel</h2>
                     <ul className={style.menuList}>
-                        <li onClick={() => setPage('profile')}>Profile</li>
-                        <li onClick={() => setPage('changePassword')}>Change Password</li>
-                    </ul>
-                    <h2 className={style.menuTitle}>Auction</h2>
-                    <ul className={style.menuList}>
-                        <li onClick={() => setPage('myProducts')}>My Products</li>
-                        <li onClick={() => setPage('newProduct')}>Create New Product</li>
+                        <li onClick={() => setPage('users')}>Users</li>
+                        {user.role.includes('superadmin') ? <li onClick={() => setPage('admins')}>Admins</li> : null}
                     </ul>
                 </div>
 
-                <div className={`${style.display}`}>{
-                    page && page === 'profile' ? <Profile />
-                        :
-                        page === 'changePassword' ? <ChangePassword />
+                <div className={`${style.display}`}>
+                    {/* {
+                        page && page === 'profile' ? <Profile />
                             :
-                            page === 'newProduct' ? <CreateNewProduct />
+                            page === 'changePassword' ? <ChangePassword />
                                 :
-                                page === 'myProducts' ? <MyProducts />
-                                    : ''
-                }</div>
-            </div>
+                                page === 'newProduct' ? <CreateNewProduct />
+                                    :
+                                    page === 'myProducts' ? <MyProducts />
+                                        : ''
+                    } */}
+                </div>
+            </div >
         </>
     )
 }

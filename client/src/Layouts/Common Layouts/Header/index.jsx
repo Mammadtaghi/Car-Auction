@@ -9,14 +9,6 @@ function Header() {
 
     const { user, setUser, Logout } = useUser()
 
-    function checkParol(value) {
-        console.log(value);
-        if (value === 'secretKey') {
-            navigate('/admin')
-            return
-        }
-    }
-
     return (
         <>
             <header id={style.Header}>
@@ -44,7 +36,7 @@ function Header() {
 
                     <div className={style.rSide}>
                         <div className={style.search}>
-                            <input type="text" placeholder='Search More Cars...' onChange={(e)=>checkParol(e.target.value)} />
+                            <input type="text" placeholder='Search More Cars...' />
                             <i className={`fa-solid fa-magnifying-glass ${style.magnify}`}></i>
                         </div>
 

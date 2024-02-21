@@ -15,20 +15,34 @@ function ShopPage() {
 
     const [gridStyle, setGridStyle] = React.useState(1)
 
-    const { Filters, setFilters, UpdateFilter, bodyTypes, setBodyTypes, models, setModels, GetModels, GetInfo } = useFilter()
+    const { Filters, setFilters, colors, setColors, filterByColor, setFilterByColor, AddToFilter, filterByBody, setFilterByBody, UpdateFilter, bodyTypes, setBodyTypes, models, setModels, GetModels, GetInfo } = useFilter()
 
     const { Products, setProducts, isLoading } = useProduct()
 
-    const FilteredData = useMemo(() => Products.filter(x => x.title.includes(Filters)).sort((a, b) => {
-        if (sort && sort.asc) {
-            return (a[sort.property] > b[sort.property]) ? 1 : ((b[sort.property] > a[sort.property]) ? -1 : 0)
-        }
-        else if (sort && sort.asc === false) {
-            return (a[sort.property] < b[sort.property]) ? 1 : ((b[sort.property] < a[sort.property]) ? -1 : 0)
-        } else {
-            return null
-        }
-    }), [Filters, Products, sort])
+    const FilteredData = useMemo(() => Products
+        .filter(x => x.title.includes(Filters))
+        .filter(x => {
+            if (!filterByBody.length) {
+                return true
+            }
+            return filterByBody.includes(x.info.body)
+        })
+        .filter(x => {
+            if (!filterByColor.length) {
+                return true
+            }
+            return filterByColor.includes(x.info.color)
+        })
+        .sort((a, b) => {
+            if (sort && sort.asc) {
+                return (a[sort.property] > b[sort.property]) ? 1 : ((b[sort.property] > a[sort.property]) ? -1 : 0)
+            }
+            else if (sort && sort.asc === false) {
+                return (a[sort.property] < b[sort.property]) ? 1 : ((b[sort.property] < a[sort.property]) ? -1 : 0)
+            } else {
+                return null
+            }
+        }), [Filters, Products, filterByBody, sort])
 
     const [PageDatas, currentPage, setCurrentPage, setDataPerPage, pageNumbers, lastPageIndex, firstElementIndex, lastElementIndex] = usePagination(FilteredData, 6)
 
@@ -43,6 +57,11 @@ function ShopPage() {
         }
         return str
     }
+
+    React.useEffect(() => {
+      setCurrentPage(1)
+    }, [filterByBody, filterByColor])
+    
 
     return (
         <>
@@ -66,8 +85,8 @@ function ShopPage() {
                                 {!models ? <span className={style.loader}></span> :
                                     models.map((model, i) => (
                                         <div key={i} onClick={() => handleFilter(model)} className={style.modelFilter}>
-                                            <span style={car && car === model.model ? {color:'var(--red)'} : {}} className={style.text}>{model.model}</span>
-                                            <span style={car && car === model.model ? {color:'var(--red)'} : {}} className={style.count}>({model.count})</span>
+                                            <span style={car && car === model.model ? { color: 'var(--red)' } : {}} className={style.text}>{model.model}</span>
+                                            <span style={car && car === model.model ? { color: 'var(--red)' } : {}} className={style.count}>({model.count})</span>
                                         </div>
                                     ))
                                 }
@@ -75,7 +94,9 @@ function ShopPage() {
 
                         </div>
 
-                        <ShopFilter title={"Body Type"} filterData={bodyTypes} />
+                        <ShopFilter title={"Body Type"} filterData={bodyTypes} filterBy={filterByBody} setFilterBy={setFilterByBody} />
+
+                        <ShopFilter title={"Color"} filterData={colors} filterBy={filterByColor} setFilterBy={setFilterByColor} />
 
                         {/* // Add your filters here */}
                     </div>

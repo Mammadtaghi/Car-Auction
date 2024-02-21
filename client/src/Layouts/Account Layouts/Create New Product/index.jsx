@@ -42,6 +42,9 @@ function CreateNewProduct() {
             setMessage(response.data.message)
             GetProducts()
             resetForm()
+            setTimeout(() => {
+                setMessage('')
+            }, 4000);
         } catch (error) {
             console.log(error);
             setMessage(error.response.data.message)

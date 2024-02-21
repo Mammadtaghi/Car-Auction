@@ -9,7 +9,13 @@ export const ShopFilterProvider = ({ children }) => {
 
     const [Filters, setFilters] = useState('')
 
+    const [filterByBody, setFilterByBody] = useState([])
+
+    const [filterByColor, setFilterByColor] = useState([])
+
     const [bodyTypes, setBodyTypes] = useState([])
+
+    const [colors, setColors] = useState([])
 
     const [models, setModels] = useState([])
 
@@ -42,6 +48,17 @@ export const ShopFilterProvider = ({ children }) => {
         return result
     }
 
+    function GetColor(data, key) {
+
+        let result = []
+
+        data.forEach(x => {
+            !result.includes(x.info[key]) ? result.push(x.info[key]) : null
+        })
+
+        return result
+    }
+
 
     function UpdateFilter(filter) {
         const index = Filters.findIndex(x => x === filter)
@@ -53,12 +70,23 @@ export const ShopFilterProvider = ({ children }) => {
     }
 
 
+    function AddToFilter(filter, storage, setStorage) {
+        const index = storage.findIndex(x => x === filter)
+        if (index === -1) {
+            setStorage([...storage, filter])
+            return
+        }
+        setStorage(storage.filter(x => x !== filter))
+    }
+
+
     useEffect(() => {
         setBodyTypes(GetInfo(Products, 'body'))
         setModels(GetModels(Products, 'title'))
+        setColors(GetColor(Products, 'color'))
     }, [Products])
 
-    const data = { Filters, setFilters, UpdateFilter, bodyTypes, setBodyTypes, models, setModels, GetModels, GetInfo }
+    const data = { Filters, setFilters, UpdateFilter, colors, setColors, filterByColor, setFilterByColor, bodyTypes, setBodyTypes, filterByBody, setFilterByBody, AddToFilter, models, setModels, GetModels, GetInfo }
 
     return (
         <shopFilterContext.Provider value={data}>

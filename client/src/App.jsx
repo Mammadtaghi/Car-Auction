@@ -15,8 +15,11 @@ import Register from './Pages/Register Page'
 import ShopPage from './Pages/Shop Page'
 import WishlistPage from './Pages/Wishlist Page'
 import AdminPanel from './Pages/Admin Panel'
+import { useUser } from './Context/userContext'
 
 function App() {
+
+  const { user, setUser, Logout } = useUser()
 
   return (
     <Routes>
@@ -34,7 +37,7 @@ function App() {
           <Route path='/cart' element={<CartPage />} />
           <Route path='/checkout' element={<CheckOutPage />} />
           <Route path='/account/:id' element={<AccountPage />} />
-          <Route path='/admin' element={<AdminPanel />} />
+          {user.role.includes('superadmin') ? < Route path='/admin' element={<AdminPanel />} /> : null}
         </Route>
       </Route>
     </Routes>
