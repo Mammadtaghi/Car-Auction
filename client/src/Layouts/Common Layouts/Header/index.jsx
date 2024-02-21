@@ -44,8 +44,8 @@ function Header() {
                             <i className="fa-solid fa-caret-down"></i>
                         </div>
 
-                        <div className={ user.role ? style.displayNone : style.signIn}>
-                            <Link to={"/login"}>Sing In</Link>
+                        <div className={style.signIn}>
+                            {!user.role ? <Link to={"/login"}>Log In</Link> : <Link to={"/"} onClick={Logout}>Log Out</Link>}
                         </div>
                     </div>
                 </div>

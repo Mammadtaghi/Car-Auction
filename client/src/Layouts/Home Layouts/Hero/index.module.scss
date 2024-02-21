@@ -76,7 +76,7 @@
                         transition: 0.5s;
 
                         &:hover {
-                            color: black;
+                            color: var(--white);
                             background-color: var(--darkGrey);
                             border: 2px solid transparent;
                         }
@@ -94,7 +94,7 @@
                         transition: 0.5s;
 
                         &:hover {
-                            color: black;
+                            color: var(--white);
                             background-color: var(--red);
                             border: 2px solid transparent;
                         }

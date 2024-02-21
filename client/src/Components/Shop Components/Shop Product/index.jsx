@@ -52,7 +52,7 @@ function ShopProduct({ item }) {
                             <Field className={`${style.bid}`} name="bid" step={item.minStep} min={item.maxBid ? (item.maxBid + item.minStep) : (item.openingBid + item.minStep)} type="number" />
                             <ErrorMessage name="bid" />
 
-                            <button className={`${style.bidBtn}`} type="submit">Place Bid</button>
+                            <button className={`${style.bidBtn}`} type="submit">Bid</button>
                         </Form>
                     </Formik>
                         : null}

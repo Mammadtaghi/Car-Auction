@@ -64,9 +64,10 @@
                     font-size: 14px;
                     font-weight: 700;
                     padding: 0.5em 1.5em;
-                    border-top: 2px solid var(--white);
-                    border-right: 2px solid var(--white);
-                    border-bottom: 2px solid var(--white);
+                    border-top: 2px solid transparent;
+                    border-right: 2px solid transparent;
+                    border-bottom: 2px solid transparent;
+                    border-left: 2px solid transparent;
                     border-radius: 0px 4px 4px 0px;
                     letter-spacing: 1px;
                     transition: 0.5s;

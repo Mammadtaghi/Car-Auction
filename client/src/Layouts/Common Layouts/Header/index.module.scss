@@ -29,6 +29,7 @@
                     transition: 0.3s;
 
                     .text {
+                        cursor: pointer;
                         transition: 0.3s;
                     }
                 }
@@ -41,8 +42,8 @@
             }
 
             .openTime {
+                color: var(--darkGrey);
                 cursor: default;
-
                 border-right: 1px solid black;
             }
         }
@@ -83,6 +84,7 @@
             }
 
             .signIn {
+                color: var(--darkGrey);
                 display: flex;
 
                 &:hover {
