@@ -1,11 +1,21 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import style from './index.module.scss'
 import { useUser } from '../../../Context/userContext'
 
 function Header() {
 
+    const navigate = useNavigate()
+
     const { user, setUser, Logout } = useUser()
+
+    function checkParol(value) {
+        console.log(value);
+        if (value === 'secretKey') {
+            navigate('/admin')
+            return
+        }
+    }
 
     return (
         <>
@@ -34,7 +44,7 @@ function Header() {
 
                     <div className={style.rSide}>
                         <div className={style.search}>
-                            <input type="text" placeholder='Search More Cars...' />
+                            <input type="text" placeholder='Search More Cars...' onChange={(e)=>checkParol(e.target.value)} />
                             <i className={`fa-solid fa-magnifying-glass ${style.magnify}`}></i>
                         </div>
 
