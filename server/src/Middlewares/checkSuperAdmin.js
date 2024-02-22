@@ -1,4 +1,4 @@
-export async function CheckAdmin(req, res, next) {
+export async function CheckSuperAdmin(req, res, next) {
     try {
         if (!req.role.includes('superadmin')) {
             res.status(406).json({ message: "You need to be SuperAdmin to do this!" })

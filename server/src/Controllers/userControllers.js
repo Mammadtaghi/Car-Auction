@@ -80,7 +80,12 @@ export async function Login(req, res) {
 
 export async function GetUsers(req, res) {
     try {
-        const users = await User.find()
+        const users = await User.find().populate({
+            path: 'vending',
+            populate: {
+                path: 'maxBidOffer'
+            }
+        })
         res.status(200).send(users)
     } catch (error) {
         res.status(500).json({ message: "Something went wrong!" })
@@ -91,9 +96,9 @@ export async function GetUserByID(req, res) {
     try {
         const { id } = req.params
         const user = await User.findById(id).populate({
-            path:'vending',
-            populate:{
-                path:'maxBidOffer'
+            path: 'vending',
+            populate: {
+                path: 'maxBidOffer'
             }
         })
         res.status(200).send(user)
@@ -145,3 +150,32 @@ export async function ChangePassword(req, res) {
         res.status(500).json({ message: "Something went wrong!" })
     }
 }
+
+export async function PromoteAsAdmin(req, res) {
+    try {
+        const { id } = req.params
+
+        const Promoter = await User.findById(req.id)
+
+        const user = await User.findByIdAndUpdate(id, { role: "admin" })
+
+        res.status(200).json({ message: `${user.username} promoted as Admin by ${Promoter.username}!` })
+    } catch (error) {
+        res.status(500).json({ message: "Something went wrong!" })
+    }
+}
+
+export async function DemoteToUser(req, res) {
+    try {
+        const { id } = req.params
+
+        const Demoter = await User.findById(req.id)
+
+        const user = await User.findByIdAndUpdate(id, { role: "user" })
+
+        res.status(200).json({ message: `${user.username} demoted to User by ${Demoter.username}!` })
+    } catch (error) {
+        res.status(500).json({ message: "Something went wrong!" })
+    }
+}
+
