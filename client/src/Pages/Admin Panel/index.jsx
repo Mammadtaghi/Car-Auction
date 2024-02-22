@@ -2,10 +2,13 @@ import React, { useState } from 'react'
 import style from './index.module.scss'
 import { Helmet } from "react-helmet-async";
 import { useUser } from '../../Context/userContext';
+import Users from '../../Layouts/Admin Layouts/Users';
+import Admins from '../../Layouts/Admin Layouts/Admins';
+import useLocalstorage from '../../Hooks/useLocalstorage';
 
 function AdminPanel() {
 
-    const [page, setPage] = useState('users')
+    const [page, setPage] = useLocalstorage('adminpanel', 'users')
 
     const { user, setUser, Logout } = useUser()
 
@@ -26,16 +29,11 @@ function AdminPanel() {
                 </div>
 
                 <div className={`${style.display}`}>
-                    {/* {
-                        page && page === 'profile' ? <Profile />
-                            :
-                            page === 'changePassword' ? <ChangePassword />
-                                :
-                                page === 'newProduct' ? <CreateNewProduct />
-                                    :
-                                    page === 'myProducts' ? <MyProducts />
-                                        : ''
-                    } */}
+                    {
+                        page && page === 'users' ? <Users />
+                            : page && page === 'admins' ? <Admins />
+                                : ''
+                    }
                 </div>
             </div >
         </>

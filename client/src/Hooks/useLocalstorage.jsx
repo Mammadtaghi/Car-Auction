@@ -1,6 +1,6 @@
 import React from 'react'
 
-function useLocalstorage(storagename, defaulValue=null) {
+function useLocalstorage(storagename, defaulValue = '') {
 
     const [data, setData] = React.useState(localStorage.getItem(storagename) ? JSON.parse(localStorage.getItem(storagename)) : defaulValue)
 

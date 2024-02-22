@@ -126,6 +126,9 @@ function Navbar() {
                                     <li>
                                         <Link className={style.NavLink} to={"/bestendpointever"}>404 Not Found</Link>
                                     </li>
+                                    {user.role.includes('admin') ? <li>
+                                        <Link className={style.NavLink} to={"/admin"}>Admin Panel</Link>
+                                    </li> : null}
                                 </ul>
                             </li>
                             <li>
@@ -144,7 +147,7 @@ function Navbar() {
                         <NavLink className={`${style.NavLink}`} to={"/wishlist"}><i className={`fa-regular fa-heart ${style.heart}`}></i></NavLink>
                         <NavLink className={`${style.NavLink}`} to={"/cart"}><i className={`fa-solid fa-basket-shopping ${style.cart}`}></i></NavLink>
                         <span className={`${style.NavLink}`}><i className={`fa-solid fa-magnifying-glass ${style.magnify}`}></i></span>
-                        <button className={`NavButton ${style.button}`} onClick={()=>navigate(user.role ? '/shop' : '/login')}>Sell Now</button>
+                        <button className={`NavButton ${style.button}`} onClick={() => navigate(user.role ? '/shop' : '/login')}>Sell Now</button>
                         <i onClick={() => setIsOpen(!isOpen)} className={`fa-solid fa-bars ${style.toggle}`}></i>
                     </div>
                 </div>

@@ -37,7 +37,7 @@ function App() {
           <Route path='/cart' element={<CartPage />} />
           <Route path='/checkout' element={<CheckOutPage />} />
           <Route path='/account/:id' element={<AccountPage />} />
-          {user.role.includes('superadmin') ? < Route path='/admin' element={<AdminPanel />} /> : null}
+          {user.role.includes('admin') ? < Route path='/admin' element={<AdminPanel />} /> : null}
         </Route>
       </Route>
     </Routes>
