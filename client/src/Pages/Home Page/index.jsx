@@ -23,16 +23,16 @@ function Home() {
             </Helmet>
             <div id={style.Home}>
                 <Hero />
-                <Search />
+                {/* <Search /> */}
                 <Auctions />
                 <AboutUs />
-                <HowItWorks />
-                <Numbers />
-                <NewOffers />
-                <SearchByBody />
-                <OurServices />
+                {/* <HowItWorks /> */}
+                {/* <Numbers /> */}
+                {/* <NewOffers /> */}
+                {/* <SearchByBody /> */}
+                {/* <OurServices /> */}
                 <MailBox />
-                <LatestNews />
+                {/* <LatestNews /> */}
                 <CreateAccount />
             </div>
         </>
